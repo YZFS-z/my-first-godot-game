@@ -1,0 +1,38 @@
+{
+    "id": "mg_303_browning",
+    "name": "Browning 7.7mm机枪",
+    "caliber": 8,
+    "type": "machine_gun",
+    "reload_time": 0.05,
+    "horizontal_travel": 0,
+    "elevation_max": 0,
+    "elevation_min": 0,
+    "aim_time": 0.1,
+    "stabilizer": true,
+    "ammo_types": [
+        {
+            "id": "browning_303_ap",
+            "name": "0.303 AP穿甲弹",
+            "type": "kinetic",
+            "penetration": 12,
+            "damage": 4,
+            "muzzle_velocity": 840,
+            "mass": 0.011,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.0,
+            "spall_multiplier": 0.4
+        },
+        {
+            "id": "browning_303_api",
+            "name": "0.303 API穿甲燃烧弹",
+            "type": "kinetic_explosive",
+            "penetration": 13,
+            "damage": 5,
+            "muzzle_velocity": 840,
+            "mass": 0.011,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.002,
+            "spall_multiplier": 0.5
+        }
+    ]
+}

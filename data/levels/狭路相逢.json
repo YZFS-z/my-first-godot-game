@@ -1,0 +1,37 @@
+{
+  "id": "狭路相逢",
+  "map_id": "map_europe",
+  "name": "狭路相逢",
+  "tanks": [
+	{
+	  "position": [
+		-55.1180305480957,
+		1.0,
+		31.6590270996094
+	  ],
+	  "rotation": 0.0,
+	  "team": 2,
+	  "vehicle_id": "tank_abrams"
+	},
+	{
+	  "position": [
+		-92.1743087768555,
+		1.0,
+		27.1323394775391
+	  ],
+	  "rotation": 0.0,
+	  "team": 2,
+	  "vehicle_id": "tank_abrams"
+	},
+	{
+	  "position": [
+		-74.2751159667969,
+		1.0,
+		40.6736907958984
+	  ],
+	  "rotation": 0.0,
+	  "team": 2,
+	  "vehicle_id": "tank_abrams"
+	}
+  ]
+}

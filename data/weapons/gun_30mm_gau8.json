@@ -1,0 +1,40 @@
+{
+    "id": "gun_30mm_gau8",
+    "name": "GAU-8 Avenger 30mm机炮",
+    "caliber": 30,
+    "type": "rotary_cannon",
+    "reload_time": 0.15,
+    "horizontal_travel": 0,
+    "elevation_max": 0,
+    "elevation_min": 0,
+    "aim_time": 0.1,
+    "stabilizer": true,
+
+    "ammo_types": [
+        {
+            "id": "pgu_14b_api",
+            "name": "PGU-14/B API穿甲燃烧弹",
+            "type": "kinetic",
+            "penetration": 80,
+            "damage": 25,
+            "muzzle_velocity": 980,
+            "mass": 0.43,
+            "drag_coefficient": 0.1,
+            "explosive_mass": 0.02,
+            "spall_multiplier": 1.2
+        },
+        {
+            "id": "pgu_13b_hei",
+            "name": "PGU-13/B HEI高爆燃烧弹",
+            "type": "explosive",
+            "penetration": 15,
+            "damage": 45,
+            "muzzle_velocity": 980,
+            "mass": 0.37,
+            "drag_coefficient": 0.12,
+            "explosive_mass": 0.08,
+            "spall_multiplier": 1.8,
+            "splash_radius": 1.5
+        }
+    ]
+}

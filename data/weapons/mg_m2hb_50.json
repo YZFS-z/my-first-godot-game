@@ -1,0 +1,50 @@
+{
+    "id": "mg_m2hb_50",
+    "name": "M2HB 12.7mm 重机枪",
+    "caliber": 13,
+    "type": "machine_gun",
+    "reload_time": 0.1,
+    "horizontal_travel": 360,
+    "elevation_max": 30,
+    "elevation_min": -10,
+    "aim_time": 0.5,
+    "stabilizer": false,
+    "ammo_types": [
+        {
+            "id": "m2_ap_50",
+            "name": "12.7mm M2 穿甲弹",
+            "type": "kinetic",
+            "penetration": 25,
+            "damage": 8,
+            "muzzle_velocity": 890,
+            "mass": 0.046,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.0,
+            "spall_multiplier": 0.7
+        },
+        {
+            "id": "m2_api_50",
+            "name": "12.7mm M8 穿甲燃烧弹",
+            "type": "kinetic_explosive",
+            "penetration": 26,
+            "damage": 10,
+            "muzzle_velocity": 890,
+            "mass": 0.046,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.006,
+            "spall_multiplier": 0.8
+        },
+        {
+            "id": "m2_apit_50",
+            "name": "12.7mm M20 穿甲燃烧曳光弹",
+            "type": "kinetic",
+            "penetration": 24,
+            "damage": 9,
+            "muzzle_velocity": 880,
+            "mass": 0.046,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.0,
+            "spall_multiplier": 0.7
+        }
+    ]
+}

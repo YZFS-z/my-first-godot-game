@@ -1,0 +1,244 @@
+{
+	"id": "plane_supermarine_spitfire",
+	"name": "喷火 Mk.IX",
+	"type": "airplane",
+	"source": "builtin",
+	"era": "ww2",
+	"nation": "GB",
+	"description": "英国皇家空军二战主力战斗机，劳斯莱斯梅林V12发动机（1720马力）、2门20mm西斯帕诺机炮+4挺7.7mm机枪，1938年服役",
+	"model": {
+		"scene_path": "res://assets/models/plane_supermarine_spitfire.glb",
+		"scale": 0.02695,
+		"offset": [
+			0,
+			1.1,
+			0
+		],
+		"muzzles": [
+			[
+				-2.3,
+				1.55,
+				-3.4
+			],
+			[
+				2.3,
+				1.55,
+				-3.4
+			]
+		]
+	},
+	"physics": {
+		"propeller_axis": "-y",
+		"ground_pitch_deg": 15.7,
+		"ground_model_offset": 0.43,
+		"tail_lift_speed": 25.0,
+		"max_speed": 657.0,
+		"max_reverse_speed": 0.0,
+		"acceleration": 12.0,
+		"deceleration": 3.0,
+		"turn_rate": 38.0,
+		"turret_turn_rate": 0.0,
+		"brake_force": 2.0,
+		"max_thrust": 22000.0,
+		"wing_area": 22.48,
+		"wingspan": 11.23,
+		"mean_chord": 2.0,
+		"mass_kg": 3000.0,
+		"drag_coefficient": 0.022,
+		"cl_alpha": 5.0,
+		"cl_zero": 0.08,
+		"induced_drag": 0.05,
+		"max_aoa": 0.35,
+		"min_aoa": -0.25,
+		"inertia_roll": 30000.0,
+		"inertia_pitch": 110000.0,
+		"inertia_yaw": 120000.0,
+		"cl_da": 0.03,
+		"cl_de": 0.3,
+		"cn_dr": 0.03,
+		"cm_alpha": -0.12,
+		"roll_damp": 2.4,
+		"pitch_damp": 2.1,
+		"yaw_damp": 1.5,
+		"surface_rate": 3.0,
+		"takeoff_speed": 38.0,
+		"stall_speed": 35.0,
+		"aim_sensitivity": 0.55,
+		"max_aim_pitch_up": 175.0,
+		"max_aim_pitch_down": -175.0,
+		"guidance_gain": 1.3,
+		"max_guidance_rate": 0.8,
+		"rate_gain": 2.0,
+		"cam_follow_speed": 5.0,
+		"rudder_rate": 50.0,
+		"rudder_assist_deg": 15.0,
+		"roll_friction": 0.6,
+		"brake_decel": 7.0,
+		"lift_excess": 1.05,
+		"phugoid_damping_gain": 3.0,
+		"g_limit": 6.0,
+		"align_rate": 3.0,
+		"ground_turn_rate": 20.0,
+		"ground_turn_speed_ref": 15.0,
+		"ground_steer_gain": 0.4,
+		"ground_steer_max_deg": 30.0,
+		"bank_smooth_rate": 4.0,
+		"keyboard_pitch_accel": 12.0,
+		"keyboard_trim_deg": 20.0
+	},
+	"armor": {
+		"hull_front": 8,
+		"hull_side": 3,
+		"hull_rear": 3,
+		"armor_type": "light"
+	},
+	"modules": [
+		{
+			"name": "engine",
+			"display_name": "发动机",
+			"max_health": 50,
+			"armor_thickness": 3,
+			"is_critical": true,
+			"position": [
+				0,
+				2.3,
+				-3.0
+			],
+			"size": [
+				1.0,
+				1.0,
+				2.5
+			]
+		},
+		{
+			"name": "left_wing",
+			"display_name": "左机翼",
+			"max_health": 30,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				-5.6,
+				1.55,
+				0
+			],
+			"size": [
+				5.5,
+				0.3,
+				2.0
+			]
+		},
+		{
+			"name": "right_wing",
+			"display_name": "右机翼",
+			"max_health": 30,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				5.6,
+				1.55,
+				0
+			],
+			"size": [
+				5.5,
+				0.3,
+				2.0
+			]
+		},
+		{
+			"name": "tail",
+			"display_name": "尾翼",
+			"max_health": 20,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				0,
+				2.5,
+				4.0
+			],
+			"size": [
+				3.0,
+				1.5,
+				1.0
+			]
+		},
+		{
+			"name": "crew_pilot",
+			"display_name": "飞行员",
+			"max_health": 1,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				0,
+				2.4,
+				-1.0
+			],
+			"size": [
+				0.5,
+				0.8,
+				0.6
+			]
+		},
+		{
+			"name": "fuel_tank",
+			"display_name": "油箱",
+			"max_health": 40,
+			"armor_thickness": 0,
+			"is_critical": false,
+			"position": [
+				0,
+				1.5,
+				-0.3
+			],
+			"size": [
+				3.0,
+				0.3,
+				1.5
+			]
+		},
+		{
+			"name": "ammo_rack",
+			"display_name": "弹药架",
+			"max_health": 25,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				0,
+				1.5,
+				-1.5
+			],
+			"size": [
+				1.0,
+				0.4,
+				1.0
+			]
+		}
+	],
+	"weapons": [
+		{
+			"slot": "primary",
+			"weapon_id": "gun_20mm_hispano",
+			"fire_rate": 10.0,
+			"ammo_capacity": 300,
+			"reload_time": 0.1
+		},
+		{
+			"slot": "secondary",
+			"weapon_id": "mg_303_browning",
+			"fire_rate": 19.0,
+			"ammo_capacity": 1400,
+			"reload_time": 0.05
+		}
+	],
+	"crew_count": 1,
+	"skills": [
+		{
+			"id": "smoke",
+			"name": "烟幕遮蔽",
+			"cooldown": 45.0,
+			"duration": 30.0,
+			"radius": 30.0,
+			"damage": 0.0
+		}
+	],
+	"history": "喷火由超级马林公司研制，雷金纳德·米切尔设计，1936年首飞，1938年服役，各型累计生产约20351架（Mk IX约5665架）。Mk IX空重2500kg，最大起飞重量3400kg，劳斯莱斯梅林66 V12发动机1720马力，最大速度656km/h（6400m），航程760km。武器为2门20mm西斯帕诺Mk II机炮+4挺7.7mm勃朗宁机枪。乘员1人。参加不列颠之战、欧洲战场、地中海与太平洋战场，是二战最著名的战斗机之一。"
+}

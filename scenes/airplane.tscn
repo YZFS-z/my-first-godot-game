@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bairplanescene01"]
+
+[ext_resource type="Script" path="res://scripts/vehicles/airplane.gd" id="1_plane"]
+[ext_resource type="PackedScene" path="res://scenes/airplane_model.tscn" id="2_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(12.0, 2.5, 9.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_placeholder"]
+size = Vector3(1.2, 1.2, 8.0)
+
+[node name="Vehicle" type="CharacterBody3D"]
+script = ExtResource("1_plane")
+collision_layer = 2
+collision_mask = 3
+floor_snap_length = 2.0
+safe_margin = 0.04
+floor_max_angle = 1.0472
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="ModelPlaceholder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+mesh = SubResource("BoxMesh_placeholder")
+visible = false
+
+[node name="Turret" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, -1.0)
+
+[node name="Gun" type="Node3D" parent="Turret"]
+
+[node name="Muzzle" type="Node3D" parent="Turret/Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.0)

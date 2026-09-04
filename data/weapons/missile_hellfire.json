@@ -1,0 +1,34 @@
+{
+    "id": "missile_hellfire",
+    "name": "AGM-114 Hellfire 反坦克导弹",
+    "caliber": 178,
+    "type": "missile",
+    "reload_time": 1.5,
+    "horizontal_travel": 0,
+    "elevation_max": 0,
+    "elevation_min": 0,
+    "aim_time": 0.5,
+    "stabilizer": true,
+
+    "ammo_types": [
+        {
+            "id": "agm114k",
+            "name": "AGM-114K 半主动激光制导",
+            "type": "chemical",
+            "penetration": 1200,
+            "damage": 250,
+            "muzzle_velocity": 450,
+            "mass": 49,
+            "drag_coefficient": 0.05,
+            "explosive_mass": 9,
+            "spall_multiplier": 2.0,
+            "splash_radius": 8.0,
+            "guidance": "laser",
+            "lock_range": 8000.0,
+            "lock_fov": 10.0,
+            "track_rate": 0.5,
+            "lock_time": 1.0,
+            "track_lifetime": 25.0
+        }
+    ]
+}

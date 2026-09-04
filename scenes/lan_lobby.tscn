@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://lan_lobby_001"]
+
+[ext_resource type="Script" path="res://scripts/ui/lan_lobby.gd" id="1"]
+
+[node name="LanLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.08, 0.1, 0.95)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "局域网房间"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="RoomInfo" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "等待玩家加入..."
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="PlayerListLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "玩家列表:"
+theme_override_font_sizes/font_size = 16
+
+[node name="PlayerListScroll" type="ScrollContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 150)
+
+[node name="PlayerList" type="VBoxContainer" parent="Panel/VBox/PlayerListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TeamSelect" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Team1Button" type="Button" parent="Panel/VBox/TeamSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+text = "队伍1 (蓝方)"
+
+[node name="Team2Button" type="Button" parent="Panel/VBox/TeamSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+text = "队伍2 (红方)"
+
+[node name="ReadyButton" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+text = "准备"
+
+[node name="StartButton" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+text = "开始游戏"
+
+[node name="LeaveButton" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "离开房间"

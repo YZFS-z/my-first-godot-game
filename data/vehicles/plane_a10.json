@@ -1,0 +1,260 @@
+{
+	"id": "plane_a10",
+	"name": "A-10 雷电II",
+	"type": "airplane",
+	"source": "builtin",
+	"description": "美国空军近距离空中支援攻击机，30mm GAU-8复仇者机炮（3900发/分）、钛合金装甲座舱与11个挂点，1977年服役",
+	"model": {
+		"scene_path": "res://assets/models/plane_a10.glb",
+		"scale": 0.99,
+		"yaw_offset": -1.5708,
+		"offset": [
+			0.91,
+			-0.47,
+			-0.37
+		],
+		"collision_size": [
+			18.0,
+			3.37,
+			16.3
+		],
+		"muzzles": [
+			[
+				-3.95,
+				1.16,
+				-0.28
+			],
+			[
+				3.95,
+				1.16,
+				-0.28
+			]
+		]
+	},
+	"physics": {
+		"propeller_disabled": true,
+		"max_speed": 706.0,
+		"max_reverse_speed": 0.0,
+		"acceleration": 15.0,
+		"deceleration": 3.0,
+		"turn_rate": 30.0,
+		"turret_turn_rate": 0.0,
+		"brake_force": 2.0,
+		"max_thrust": 80000.0,
+		"wing_area": 47.0,
+		"wingspan": 17.0,
+		"mean_chord": 4.0,
+		"mass_kg": 9000.0,
+		"drag_coefficient": 0.02,
+		"cl_alpha": 4.5,
+		"cl_zero": 0.08,
+		"induced_drag": 0.05,
+		"max_aoa": 0.3,
+		"min_aoa": -0.25,
+		"inertia_roll": 90000.0,
+		"inertia_pitch": 320000.0,
+		"inertia_yaw": 350000.0,
+		"cl_da": 0.03,
+		"cl_de": 0.3,
+		"cn_dr": 0.03,
+		"cm_alpha": -0.12,
+		"roll_damp": 2.4,
+		"pitch_damp": 2.1,
+		"yaw_damp": 1.5,
+		"surface_rate": 3.0,
+		"takeoff_speed": 55.0,
+		"stall_speed": 52.0,
+		"aim_sensitivity": 0.55,
+		"max_aim_pitch_up": 175.0,
+		"max_aim_pitch_down": -175.0,
+		"guidance_gain": 1.3,
+		"max_guidance_rate": 0.8,
+		"rate_gain": 2.0,
+		"cam_follow_speed": 5.0,
+		"rudder_rate": 50.0,
+		"rudder_assist_deg": 15.0,
+		"roll_friction": 0.6,
+		"brake_decel": 7.0,
+		"lift_excess": 1.05,
+		"phugoid_damping_gain": 3.0,
+		"g_limit": 7.0,
+		"align_rate": 3.0,
+		"ground_turn_rate": 20.0,
+		"ground_turn_speed_ref": 15.0,
+		"ground_steer_gain": 0.4,
+		"ground_steer_max_deg": 30.0,
+		"bank_smooth_rate": 4.0,
+		"keyboard_pitch_accel": 12.0,
+		"keyboard_trim_deg": 20.0
+	},
+	"armor": {
+		"hull_front": 38,
+		"hull_side": 15,
+		"hull_rear": 10,
+		"armor_type": "titanium"
+	},
+	"modules": [
+		{
+			"name": "engine",
+			"display_name": "发动机",
+			"max_health": 50,
+			"armor_thickness": 5,
+			"is_critical": true,
+			"position": [
+				-3.0,
+				2.6,
+				5.5
+			],
+			"size": [
+				2.0,
+				1.2,
+				3.0
+			]
+		},
+		{
+			"name": "left_wing",
+			"display_name": "左机翼",
+			"max_health": 25,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				-6.0,
+				1.8,
+				1.0
+			],
+			"size": [
+				7.0,
+				0.3,
+				3.0
+			]
+		},
+		{
+			"name": "right_wing",
+			"display_name": "右机翼",
+			"max_health": 25,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				6.0,
+				1.8,
+				1.0
+			],
+			"size": [
+				7.0,
+				0.3,
+				3.0
+			]
+		},
+		{
+			"name": "tail",
+			"display_name": "尾翼",
+			"max_health": 15,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				0,
+				2.6,
+				7.5
+			],
+			"size": [
+				4.0,
+				1.5,
+				1.5
+			]
+		},
+		{
+			"name": "crew_pilot",
+			"display_name": "飞行员",
+			"max_health": 1,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				0,
+				2.2,
+				-3.5
+			],
+			"size": [
+				0.6,
+				1.0,
+				0.8
+			]
+		},
+		{
+			"name": "fuel_tank",
+			"display_name": "油箱",
+			"max_health": 30,
+			"armor_thickness": 0,
+			"is_critical": false,
+			"position": [
+				0,
+				1.6,
+				2.5
+			],
+			"size": [
+				2.0,
+				0.8,
+				2.5
+			]
+		},
+		{
+			"name": "ammo_rack",
+			"display_name": "弹药架",
+			"max_health": 20,
+			"armor_thickness": 0,
+			"is_critical": true,
+			"position": [
+				0,
+				1.3,
+				-4.5
+			],
+			"size": [
+				1.2,
+				0.8,
+				1.5
+			]
+		}
+	],
+	"weapons": [
+		{
+			"slot": "primary",
+			"weapon_id": "gun_30mm_gau8",
+			"fire_rate": 3900,
+			"ammo_capacity": 1174,
+			"reload_time": 0.015,
+			"muzzle_mode": "node"
+		},
+		{
+			"slot": "secondary",
+			"weapon_id": "missile_agm65",
+			"fire_rate": 0.3,
+			"ammo_capacity": 6,
+			"reload_time": 1.0,
+			"muzzle_mode": "alternate"
+		}
+	],
+	"crew_count": 1,
+	"skills": [
+		{
+			"id": "artillery",
+			"name": "火炮支援",
+			"cooldown": 60.0,
+			"duration": 0.0,
+			"radius": 50.0,
+			"damage": 200.0
+		},
+		{
+			"id": "smoke",
+			"name": "烟幕遮蔽",
+			"cooldown": 45.0,
+			"duration": 30.0,
+			"radius": 30.0,
+			"damage": 0.0
+		}
+	],
+	"nation": "USA",
+	"era": "modern",
+	"history": "A-10由费尔柴尔德研制，1972年首飞，1977年服役，共生产716架。空重11321kg，最大起飞重量23000kg，2台TF34涡扇发动机，最大速度706km/h，作战半径460km。核心武器30mm GAU-8/A复仇者机炮（备弹1174发，射速3900发/分），11个挂点可挂载AGM-65小牛导弹、AIM-9响尾蛇、炸弹与火箭弹。座舱周围1200磅钛合金装甲，可承受23mm高炮射击。乘员1人。参加海湾战争、伊拉克战争、阿富汗战争。",
+	"avionics": {
+		"has_ccip": true
+	}
+}

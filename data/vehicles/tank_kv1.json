@@ -1,0 +1,301 @@
+{
+    "id": "tank_kv1",
+    "name": "KV-1",
+    "type": "tank",
+    "nation": "USSR",
+    "era": "ww2",
+    "source": "builtin",
+    "description": "苏联KV-1重型坦克，75mm厚重装甲与76mm ZiS-5主炮，1939年定型，卫国战争初期令德军反坦克炮束手无策",
+    "model": {
+        "scene_path": "res://assets/models/tank_kv1.glb",
+        "mesh_path": "",
+        "scale": 1.07,
+        "barrel_length": 3.4,
+        "offset": [
+            0,
+            -0.256,
+            0
+        ]
+    },
+    "physics": {
+        "mass": 43000,
+        "max_speed": 35.0,
+        "max_reverse_speed": -6.0,
+        "acceleration": 1.8,
+        "deceleration": 3.5,
+        "turn_rate": 22.0,
+        "turret_turn_rate": 15.0,
+        "gun_elevation_max": 25.0,
+        "gun_elevation_min": -3.0,
+        "brake_force": 5.0
+    },
+    "armor": {
+        "hull_front": 75,
+        "hull_side": 75,
+        "hull_rear": 60,
+        "turret_front": 110,
+        "turret_side": 90,
+        "turret_rear": 75,
+        "armor_type": "rolled_homogeneous"
+    },
+    "modules": [
+        {
+            "name": "engine",
+            "display_name": "发动机",
+            "max_health": 110,
+            "armor_thickness": 15,
+            "is_critical": false,
+            "position": [
+                0,
+                0.244,
+                -1.8
+            ],
+            "size": [
+                1.4,
+                0.9,
+                1.4
+            ]
+        },
+        {
+            "name": "transmission",
+            "display_name": "传动系统",
+            "max_health": 75,
+            "armor_thickness": 10,
+            "is_critical": false,
+            "position": [
+                0,
+                0.044,
+                -0.8
+            ],
+            "size": [
+                1.1,
+                0.5,
+                0.8
+            ]
+        },
+        {
+            "name": "track_left",
+            "display_name": "左履带",
+            "max_health": 55,
+            "armor_thickness": 5,
+            "is_critical": false,
+            "position": [
+                -1.8,
+                0.044,
+                0
+            ],
+            "size": [
+                0.5,
+                0.6,
+                5.0
+            ]
+        },
+        {
+            "name": "track_right",
+            "display_name": "右履带",
+            "max_health": 55,
+            "armor_thickness": 5,
+            "is_critical": false,
+            "position": [
+                1.8,
+                0.044,
+                0
+            ],
+            "size": [
+                0.5,
+                0.6,
+                5.0
+            ]
+        },
+        {
+            "name": "turret_ring",
+            "display_name": "炮塔座圈",
+            "max_health": 90,
+            "armor_thickness": 50,
+            "is_critical": false,
+            "position": [
+                0,
+                0.744,
+                0
+            ],
+            "size": [
+                2.0,
+                0.25,
+                2.0
+            ]
+        },
+        {
+            "name": "gun",
+            "display_name": "主炮",
+            "max_health": 70,
+            "armor_thickness": 25,
+            "is_critical": false,
+            "position": [
+                0,
+                1.044,
+                -2.0
+            ],
+            "size": [
+                0.25,
+                0.25,
+                2.5
+            ]
+        },
+        {
+            "name": "ammo_rack",
+            "display_name": "弹药架",
+            "max_health": 50,
+            "armor_thickness": 20,
+            "is_critical": true,
+            "position": [
+                0,
+                0.544,
+                -0.3
+            ],
+            "size": [
+                1.3,
+                0.7,
+                1.0
+            ]
+        },
+        {
+            "name": "fuel_tank",
+            "display_name": "油箱",
+            "max_health": 65,
+            "armor_thickness": 10,
+            "is_critical": false,
+            "position": [
+                -0.8,
+                0.144,
+                -1.2
+            ],
+            "size": [
+                0.7,
+                0.6,
+                0.9
+            ]
+        },
+        {
+            "name": "crew_driver",
+            "display_name": "驾驶员",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0,
+                0.344,
+                1.2
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_commander",
+            "display_name": "车长",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0.4,
+                0.944,
+                -0.2
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_gunner",
+            "display_name": "炮手",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                -0.4,
+                0.944,
+                0.3
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_loader",
+            "display_name": "装填手",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0.4,
+                0.944,
+                0.3
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_radio",
+            "display_name": "无线电员",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0,
+                0.344,
+                -1.2
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        }
+    ],
+    "weapons": [
+        {
+            "slot": "primary",
+            "weapon_id": "gun_76mm_zis5",
+            "fire_rate": 8,
+            "ammo_capacity": 114,
+            "reload_time": 8.0
+        },
+        {
+            "slot": "secondary",
+            "weapon_id": "mg_dt_762",
+            "fire_rate": 600,
+            "ammo_capacity": 1000,
+            "reload_time": 0.1
+        }
+    ],
+    "crew_count": 5,
+    "scope": {
+        "style": "ww2_soviet",
+        "zoom_levels": [
+            2.5,
+            4.0
+        ],
+        "field_of_view": 50.0,
+        "reticle_color": "#1a1a1a",
+        "lens_color": [
+            0.95,
+            0.93,
+            0.85,
+            0.05
+        ],
+        "has_range_finder": true,
+        "has_stadiametric": true,
+        "description": "TMFD 炮手瞄准镜，密位分划，手动测距",
+        "range_finder_time": 2.5
+    },
+    "history": "KV-1由基洛夫工厂研制，1939年定型，1940年服役，各型累计生产约5219辆。战斗全重45吨，V-2K柴油机600马力，公路最大速度35km/h，行程250km。主炮76.2mm ZiS-5坦克炮（备弹111发），配3挺7.62mm DT机枪。车体装甲75mm（1942型铸造炮塔前90mm），战争初期德军37mm/50mm反坦克炮无法正面击穿。乘员5人。以厚重装甲闻名，但机械可靠性较差，后期被IS系列取代。"
+}

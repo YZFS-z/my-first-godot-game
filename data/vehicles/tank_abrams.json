@@ -1,0 +1,294 @@
+{
+    "id": "tank_abrams",
+    "name": "M1A2 Abrams",
+    "type": "tank",
+    "nation": "USA",
+    "era": "modern",
+    "source": "builtin",
+    "description": "美国第三代主战坦克，1500马力燃气轮机、贫铀复合装甲、120mm M256滑膛炮与先进猎歼火控，1993年服役",
+    "model": {
+        "scene_path": "res://assets/models/m1a2_abrams.glb",
+        "mesh_path": "",
+        "scale": 1.0,
+        "yaw_offset": 3.14159,
+        "gun_pivot": [
+            0,
+            1.75,
+            0
+        ],
+        "collision_size": [
+            3.6,
+            2.2,
+            8.2
+        ],
+        "collision_offset": [
+            0,
+            1.1,
+            0
+        ]
+    },
+    "physics": {
+        "mass": 62000,
+        "max_speed": 67.0,
+        "max_reverse_speed": -10.0,
+        "acceleration": 3.0,
+        "deceleration": 5.0,
+        "turn_rate": 30.0,
+        "turret_turn_rate": 45.0,
+        "gun_elevation_max": 20.0,
+        "gun_elevation_min": -10.0,
+        "brake_force": 8.0
+    },
+    "armor": {
+        "hull_front": 800,
+        "hull_side": 300,
+        "hull_rear": 150,
+        "turret_front": 900,
+        "turret_side": 350,
+        "turret_rear": 200,
+        "armor_type": "composite"
+    },
+    "modules": [
+        {
+            "name": "engine",
+            "display_name": "燃气轮机",
+            "max_health": 120,
+            "armor_thickness": 15,
+            "is_critical": false,
+            "position": [
+                0,
+                0.9,
+                2.6
+            ],
+            "size": [
+                1.6,
+                1.0,
+                1.6
+            ]
+        },
+        {
+            "name": "transmission",
+            "display_name": "传动系统",
+            "max_health": 80,
+            "armor_thickness": 10,
+            "is_critical": false,
+            "position": [
+                0,
+                0.5,
+                -2.6
+            ],
+            "size": [
+                1.4,
+                0.7,
+                1.0
+            ]
+        },
+        {
+            "name": "track_left",
+            "display_name": "左履带",
+            "max_health": 60,
+            "armor_thickness": 5,
+            "is_critical": false,
+            "position": [
+                -1.7,
+                0.4,
+                0
+            ],
+            "size": [
+                0.6,
+                0.7,
+                6.8
+            ]
+        },
+        {
+            "name": "track_right",
+            "display_name": "右履带",
+            "max_health": 60,
+            "armor_thickness": 5,
+            "is_critical": false,
+            "position": [
+                1.7,
+                0.4,
+                0
+            ],
+            "size": [
+                0.6,
+                0.7,
+                6.8
+            ]
+        },
+        {
+            "name": "turret_ring",
+            "display_name": "炮塔座圈",
+            "max_health": 100,
+            "armor_thickness": 50,
+            "is_critical": false,
+            "position": [
+                0,
+                1.5,
+                0
+            ],
+            "size": [
+                2.6,
+                0.3,
+                2.6
+            ]
+        },
+        {
+            "name": "gun",
+            "display_name": "主炮",
+            "max_health": 80,
+            "armor_thickness": 30,
+            "is_critical": false,
+            "position": [
+                0,
+                1.9,
+                -3.2
+            ],
+            "size": [
+                0.35,
+                0.35,
+                4.0
+            ]
+        },
+        {
+            "name": "ammo_rack",
+            "display_name": "弹药架（炮塔尾舱）",
+            "max_health": 50,
+            "armor_thickness": 20,
+            "is_critical": true,
+            "position": [
+                0,
+                1.7,
+                0.7
+            ],
+            "size": [
+                1.8,
+                0.9,
+                0.6
+            ]
+        },
+        {
+            "name": "fuel_tank",
+            "display_name": "油箱",
+            "max_health": 70,
+            "armor_thickness": 10,
+            "is_critical": false,
+            "position": [
+                -1.2,
+                0.7,
+                1.6
+            ],
+            "size": [
+                0.8,
+                0.5,
+                1.2
+            ]
+        },
+        {
+            "name": "crew_driver",
+            "display_name": "驾驶员",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                -0.8,
+                0.8,
+                -2.3
+            ],
+            "size": [
+                0.5,
+                0.8,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_commander",
+            "display_name": "车长",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0.7,
+                1.9,
+                0.2
+            ],
+            "size": [
+                0.5,
+                0.8,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_gunner",
+            "display_name": "炮手",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                -0.7,
+                1.9,
+                0.3
+            ],
+            "size": [
+                0.5,
+                0.8,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_loader",
+            "display_name": "装填手",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                -0.7,
+                1.9,
+                -0.5
+            ],
+            "size": [
+                0.5,
+                0.8,
+                0.5
+            ]
+        }
+    ],
+    "weapons": [
+        {
+            "slot": "primary",
+            "weapon_id": "gun_120mm_m256",
+            "fire_rate": 6,
+            "ammo_capacity": 42,
+            "reload_time": 5.0
+        },
+        {
+            "slot": "secondary",
+            "weapon_id": "mg_m2hb_50",
+            "fire_rate": 9,
+            "ammo_capacity": 1000,
+            "reload_time": 0.1
+        }
+    ],
+    "crew_count": 4,
+    "scope": {
+        "style": "modern",
+        "zoom_levels": [
+            3.0,
+            10.0
+        ],
+        "field_of_view": 40.0,
+        "reticle_color": "#00ff44",
+        "lens_color": [
+            0.88,
+            0.94,
+            1.0,
+            0.06
+        ],
+        "has_range_finder": true,
+        "has_stadiametric": true,
+        "description": "M1A2 车长/炮手主瞄准镜，带激光测距仪和电子分划",
+        "range_finder_time": 0.5
+    },
+    "history": "M1系列1980年开始服役，M1A2型1993年列装，各型累计生产约8700辆。战斗全重62.5吨，AGT-1500燃气轮机1500马力，公路最大速度67km/h，行程426km。主炮120mm M256滑膛炮（备弹42发），配12.7mm车长机枪与7.62mm同轴/装填手机枪。车体与炮塔采用复合装甲（含贫铀层），炮塔前等效约900mm RHA。乘员4人。参加海湾战争、伊拉克战争、阿富汗战争。"
+}

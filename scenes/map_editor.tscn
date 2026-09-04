@@ -1,0 +1,197 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmapeditor001"]
+
+[ext_resource type="Script" path="res://scripts/ui/editors/map_editor/map_editor.gd" id="1_editor"]
+[ext_resource type="Script" path="res://scripts/ui/editors/map_editor/map_editor_terrain.gd" id="2_terrain"]
+[ext_resource type="Script" path="res://scripts/ui/editors/map_editor/map_editor_color.gd" id="3_color"]
+[ext_resource type="Script" path="res://scripts/ui/editors/map_editor/map_editor_objects.gd" id="4_objects"]
+[ext_resource type="Script" path="res://scripts/ui/editors/map_editor/map_editor_io.gd" id="5_io"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.15, 0.15, 0.15, 1)
+ambient_light_source = 1
+ambient_light_color = Color(0.8, 0.85, 0.9, 1)
+ambient_light_energy = 0.8
+
+[node name="MapEditor" type="Node3D"]
+script = ExtResource("1_editor")
+
+[node name="MapTerrain" type="Node3D" parent="."]
+script = ExtResource("2_terrain")
+
+[node name="MapColorPaint" type="Node3D" parent="."]
+script = ExtResource("3_color")
+
+[node name="MapObjects" type="Node3D" parent="."]
+script = ExtResource("4_objects")
+
+[node name="MapIO" type="Node3D" parent="."]
+script = ExtResource("5_io")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 20, 0)
+light_energy = 1.0
+
+[node name="CameraRig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+far = 8000.0
+current = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+
+[node name="GroundCollision" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UILayer"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1275.0
+offset_bottom = 95.0
+
+[node name="ToolbarScroll" type="ScrollContainer" parent="UILayer/Panel"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1265.0
+offset_bottom = 62.0
+horizontal_scroll_mode = 1
+vertical_scroll_mode = 0
+
+[node name="Toolbar" type="HBoxContainer" parent="UILayer/Panel/ToolbarScroll"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MapNameLabel" type="Label" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+text = "地图名:"
+theme_override_font_sizes/font_size = 14
+
+[node name="MapNameInput" type="LineEdit" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 32)
+placeholder_text = "如: map_desert"
+
+[node name="MapSizeLabel" type="Label" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+text = "尺寸:"
+theme_override_font_sizes/font_size = 14
+
+[node name="MapSizeInput" type="LineEdit" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 32)
+text = "200"
+
+[node name="AirBoundaryLabel" type="Label" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+text = "飞机边界:"
+theme_override_font_sizes/font_size = 14
+
+[node name="AirBoundaryInput" type="LineEdit" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 32)
+text = "12000"
+
+[node name="ObstacleLabel" type="Label" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+text = "物体:"
+theme_override_font_sizes/font_size = 14
+
+[node name="ObstacleOption" type="OptionButton" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 32)
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 32)
+color = Color(0.6, 0.55, 0.4, 1)
+tooltip_text = "地面绘制颜色"
+
+[node name="ImportModelButton" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 32)
+text = "导入模型"
+
+[node name="ModelOption" type="OptionButton" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 32)
+placeholder_text = "选择已导入模型"
+
+[node name="ScaleLabel" type="Label" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+text = "缩放:"
+theme_override_font_sizes/font_size = 14
+
+[node name="ScaleSlider" type="HSlider" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 28)
+min_value = 0.1
+max_value = 50.0
+step = 0.1
+value = 1.0
+
+[node name="ScaleValue" type="Label" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 0)
+text = "1.0"
+
+[node name="PlaceModeToggle" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 32)
+text = "放置模式"
+toggle_mode = true
+button_pressed = true
+
+[node name="SpawnToggle" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 32)
+text = "设置出生点"
+toggle_mode = true
+
+[node name="NewButton" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 32)
+text = "新建"
+
+[node name="LoadButton" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 32)
+text = "加载"
+
+[node name="SaveButton" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 32)
+text = "保存"
+
+[node name="ClearButton" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 32)
+text = "清空"
+
+[node name="BackButton" type="Button" parent="UILayer/Panel/ToolbarScroll/Toolbar"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 32)
+text = "返回菜单"
+
+[node name="StatusLabel" type="Label" parent="UILayer/Panel"]
+offset_left = 10.0
+offset_top = 67.0
+offset_right = 1260.0
+offset_bottom = 90.0
+text = "就绪"
+theme_override_font_sizes/font_size = 12
+
+[node name="SelectedLabel" type="Label" parent="UILayer"]
+offset_left = 10.0
+offset_top = 690.0
+offset_right = 600.0
+offset_bottom = 715.0
+text = "未选中"
+modulate = Color(0.8, 0.85, 0.9, 1)

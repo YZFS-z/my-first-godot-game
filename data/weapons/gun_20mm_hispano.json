@@ -1,0 +1,40 @@
+{
+    "id": "gun_20mm_hispano",
+    "name": "Hispano Mk.II 20mm机炮",
+    "caliber": 20,
+    "type": "autocannon",
+    "reload_time": 0.1,
+    "horizontal_travel": 0,
+    "elevation_max": 0,
+    "elevation_min": 0,
+    "aim_time": 0.1,
+    "stabilizer": true,
+
+    "ammo_types": [
+        {
+            "id": "hispano_hei_mk2",
+            "name": "20mm HEFI高爆燃烧弹",
+            "type": "explosive",
+            "penetration": 15,
+            "damage": 45,
+            "muzzle_velocity": 840,
+            "mass": 0.13,
+            "drag_coefficient": 0.12,
+            "explosive_mass": 0.06,
+            "spall_multiplier": 1.8,
+            "splash_radius": 1.2
+        },
+        {
+            "id": "hispano_api_mk2",
+            "name": "20mm API穿甲燃烧弹",
+            "type": "kinetic_explosive",
+            "penetration": 35,
+            "damage": 25,
+            "muzzle_velocity": 840,
+            "mass": 0.13,
+            "drag_coefficient": 0.1,
+            "explosive_mass": 0.01,
+            "spall_multiplier": 1.2
+        }
+    ]
+}

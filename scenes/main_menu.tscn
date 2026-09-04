@@ -1,0 +1,534 @@
+[gd_scene format=3 uid="uid://bmainmenu0001"]
+
+[ext_resource type="Script" uid="uid://cqpu7knqm4ab2" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+
+[sub_resource type="StyleBoxFlat" id="1_panel_bg"]
+bg_color = Color(0.12, 0.14, 0.18, 0.97)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="MainMenu" type="Control" unique_id=1036852254]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=621832454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackgroundDim" type="ColorRect" parent="." unique_id=1496542595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.07, 0.1, 0.35)
+
+[node name="Title" type="Label" parent="." unique_id=148851071]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 1280.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 56
+text = "WAR TANK"
+horizontal_alignment = 1
+
+[node name="MenuArea" type="CenterContainer" parent="." unique_id=532151383]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="VBoxContainer" parent="MenuArea" unique_id=1935608176]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="StartButton" type="Button" parent="MenuArea/MainPanel" unique_id=2021786053]
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "开 始"
+
+[node name="SettingsButton" type="Button" parent="MenuArea/MainPanel" unique_id=1302388484]
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "设 置"
+
+[node name="EditButton" type="Button" parent="MenuArea/MainPanel" unique_id=1925225755]
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "编 辑"
+
+[node name="ExitButton" type="Button" parent="MenuArea/MainPanel" unique_id=1315386457]
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "退 出"
+
+[node name="StartPanel" type="PanelContainer" parent="." unique_id=2072815468]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("1_panel_bg")
+
+[node name="VBox" type="VBoxContainer" parent="StartPanel" unique_id=1400889834]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SingleButton" type="Button" parent="StartPanel/VBox" unique_id=2049732632]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "关 卡"
+
+[node name="LanButton" type="Button" parent="StartPanel/VBox" unique_id=772053016]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "局域网联机"
+
+[node name="PublicButton" type="Button" parent="StartPanel/VBox" unique_id=1598987092]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "公网联机"
+
+[node name="StartBackButton" type="Button" parent="StartPanel/VBox" unique_id=545908835]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "返 回"
+
+[node name="PublicPanel" type="Panel" parent="." unique_id=1378838802]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("1_panel_bg")
+
+[node name="PublicVBox" type="VBoxContainer" parent="PublicPanel" unique_id=100155461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = -30.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="PublicTitle" type="Label" parent="PublicPanel/PublicVBox" unique_id=1311518672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "公网联机"
+horizontal_alignment = 1
+
+[node name="PublicMessage" type="Label" parent="PublicPanel/PublicVBox" unique_id=1806406622]
+modulate = Color(0.8, 0.85, 0.9, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "公网联机功能正在建设中
+
+未来将支持：
+• 匹配对战
+• 房间列表
+• 好友组队
+• 排行榜
+
+敬请期待！"
+horizontal_alignment = 1
+
+[node name="PublicBackButton" type="Button" parent="PublicPanel/PublicVBox" unique_id=1771939049]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "返 回"
+
+[node name="EditPanel" type="PanelContainer" parent="." unique_id=2103162014]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("1_panel_bg")
+
+[node name="VBox" type="VBoxContainer" parent="EditPanel" unique_id=948092419]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MapEditButton" type="Button" parent="EditPanel/VBox" unique_id=35519955]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "地图编辑"
+
+[node name="VehicleEditButton" type="Button" parent="EditPanel/VBox" unique_id=490283659]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "载具编辑"
+
+[node name="AmmoEditButton" type="Button" parent="EditPanel/VBox" unique_id=80625439]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "弹药编辑"
+
+[node name="EditBackButton" type="Button" parent="EditPanel/VBox" unique_id=160197496]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "返 回"
+
+[node name="LevelPanel" type="Panel" parent="." unique_id=1138833403]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("1_panel_bg")
+
+[node name="LevelVBox" type="VBoxContainer" parent="LevelPanel" unique_id=373253283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="LevelTitle" type="Label" parent="LevelPanel/LevelVBox" unique_id=646700561]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "选择关卡"
+horizontal_alignment = 1
+
+[node name="LevelSelectRow" type="HBoxContainer" parent="LevelPanel/LevelVBox" unique_id=1786974593]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LevelSelectLabel" type="Label" parent="LevelPanel/LevelVBox/LevelSelectRow" unique_id=521379485]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "关卡："
+
+[node name="LevelSelectOption" type="OptionButton" parent="LevelPanel/LevelVBox/LevelSelectRow" unique_id=304242268]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelEditorButton" type="Button" parent="LevelPanel/LevelVBox/LevelSelectRow" unique_id=1081788979]
+custom_minimum_size = Vector2(110, 36)
+layout_mode = 2
+text = "关卡编辑器"
+
+[node name="DifficultyRow" type="HBoxContainer" parent="LevelPanel/LevelVBox" unique_id=889036372]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DifficultyLabel" type="Label" parent="LevelPanel/LevelVBox/DifficultyRow" unique_id=674550071]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "难度："
+
+[node name="DifficultyOption" type="OptionButton" parent="LevelPanel/LevelVBox/DifficultyRow" unique_id=511668085]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelInfo" type="RichTextLabel" parent="LevelPanel/LevelVBox" unique_id=1736962536]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+
+[node name="LevelButtonRow" type="HBoxContainer" parent="LevelPanel/LevelVBox" unique_id=423660209]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelStartButton" type="Button" parent="LevelPanel/LevelVBox/LevelButtonRow" unique_id=721406894]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "开始战斗"
+
+[node name="LevelBackButton" type="Button" parent="LevelPanel/LevelVBox/LevelButtonRow" unique_id=2053552093]
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "返 回"
+
+[node name="BattlePanel" type="Panel" parent="." unique_id=786067506]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("1_panel_bg")
+
+[node name="Scroll" type="ScrollContainer" parent="BattlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattleVBox" type="VBoxContainer" parent="BattlePanel/Scroll" unique_id=1621827070]
+layout_mode = 2
+size_flags_horizontal = 3
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="BattleTitle" type="Label" parent="BattlePanel/Scroll/BattleVBox" unique_id=2025249733]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "战斗准备"
+horizontal_alignment = 1
+
+[node name="VehicleRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=1601409855]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="VehicleLabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/VehicleRow" unique_id=1411980892]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "选择载具："
+
+[node name="VehicleList" type="ItemList" parent="BattlePanel/Scroll/BattleVBox/VehicleRow" unique_id=2100270023]
+custom_minimum_size = Vector2(220, 130)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VehicleInfo" type="RichTextLabel" parent="BattlePanel/Scroll/BattleVBox/VehicleRow" unique_id=1821968924]
+custom_minimum_size = Vector2(350, 130)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+
+[node name="MapRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=407204333]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="MapLabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/MapRow" unique_id=314373858]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "选择地图："
+
+[node name="MapList" type="ItemList" parent="BattlePanel/Scroll/BattleVBox/MapRow" unique_id=1938927704]
+custom_minimum_size = Vector2(220, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MapInfo" type="RichTextLabel" parent="BattlePanel/Scroll/BattleVBox/MapRow" unique_id=1662059155]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+
+[node name="NetworkRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=1986267287]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NetworkLabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/NetworkRow" unique_id=580399038]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "网络模式："
+
+[node name="ModeOption" type="OptionButton" parent="BattlePanel/Scroll/BattleVBox/NetworkRow" unique_id=1086979135]
+custom_minimum_size = Vector2(180, 32)
+layout_mode = 2
+
+[node name="IPInput" type="LineEdit" parent="BattlePanel/Scroll/BattleVBox/NetworkRow" unique_id=1049457842]
+custom_minimum_size = Vector2(140, 32)
+layout_mode = 2
+placeholder_text = "服务器IP"
+
+[node name="PortInput" type="LineEdit" parent="BattlePanel/Scroll/BattleVBox/NetworkRow" unique_id=658512883]
+custom_minimum_size = Vector2(70, 32)
+layout_mode = 2
+placeholder_text = "端口"
+
+[node name="RoomListRow" type="VBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=1793108948]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RoomListLabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/RoomListRow" unique_id=1216855461]
+modulate = Color(0.8, 0.85, 0.9, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "局域网房间（点击加入）："
+
+[node name="RoomList" type="ItemList" parent="BattlePanel/Scroll/BattleVBox/RoomListRow" unique_id=564794695]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RefreshButton" type="Button" parent="BattlePanel/Scroll/BattleVBox/RoomListRow" unique_id=1499449572]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "刷新房间列表"
+
+[node name="EnemyAIRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=1561284259]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EnemyAILabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/EnemyAIRow" unique_id=1970381892]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "敌方AI："
+
+[node name="EnemyAISlider" type="HSlider" parent="BattlePanel/Scroll/BattleVBox/EnemyAIRow" unique_id=824841599]
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+max_value = 10.0
+value = 3.0
+
+[node name="EnemyAICount" type="Label" parent="BattlePanel/Scroll/BattleVBox/EnemyAIRow" unique_id=527385559]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "3"
+
+[node name="AirBoundaryRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=1750193576]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AirBoundaryLabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/AirBoundaryRow" unique_id=608080175]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "飞机边界："
+
+[node name="AirBoundaryInput" type="LineEdit" parent="BattlePanel/Scroll/BattleVBox/AirBoundaryRow" unique_id=1803579289]
+custom_minimum_size = Vector2(140, 32)
+layout_mode = 2
+placeholder_text = "12000米（0=默认）"
+
+[node name="FriendlyAIRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=995682160]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FriendlyAILabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/FriendlyAIRow" unique_id=1932650727]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "友方AI："
+
+[node name="FriendlyAISlider" type="HSlider" parent="BattlePanel/Scroll/BattleVBox/FriendlyAIRow" unique_id=2054780623]
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+max_value = 5.0
+
+[node name="FriendlyAICount" type="Label" parent="BattlePanel/Scroll/BattleVBox/FriendlyAIRow" unique_id=1222693597]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "0"
+
+[node name="TeamRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=485964009]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TeamLabel" type="Label" parent="BattlePanel/Scroll/BattleVBox/TeamRow" unique_id=739025962]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "选择队伍:"
+
+[node name="Team1Button" type="Button" parent="BattlePanel/Scroll/BattleVBox/TeamRow" unique_id=1158198724]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "队伍1 (蓝方)"
+
+[node name="Team2Button" type="Button" parent="BattlePanel/Scroll/BattleVBox/TeamRow" unique_id=1412593676]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "队伍2 (红方)"
+
+[node name="BattleButtonRow" type="HBoxContainer" parent="BattlePanel/Scroll/BattleVBox" unique_id=360323136]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BattleStartButton" type="Button" parent="BattlePanel/Scroll/BattleVBox/BattleButtonRow" unique_id=779852914]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "开始战斗"
+
+[node name="BattleBackButton" type="Button" parent="BattlePanel/Scroll/BattleVBox/BattleButtonRow" unique_id=612812244]
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "返 回"
+
+[node name="StatusLabel" type="Label" parent="." unique_id=369652936]
+modulate = Color(1, 0.8, 0.4, 1)
+layout_mode = 0
+offset_top = 660.0
+offset_right = 1280.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="." unique_id=489702553]
+modulate = Color(0.55, 0.6, 0.68, 1)
+layout_mode = 0
+offset_top = 700.0
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "v1.26.8.9   ©2026 一只肥鼠"
+horizontal_alignment = 1

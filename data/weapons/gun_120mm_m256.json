@@ -1,0 +1,51 @@
+{
+    "id": "gun_120mm_m256",
+    "name": "M256 120mm 滑膛炮",
+    "caliber": 120,
+    "type": "smoothbore",
+    "reload_time": 5.0,
+    "horizontal_travel": 360,
+    "elevation_max": 20,
+    "elevation_min": -10,
+    "aim_time": 1.5,
+    "stabilizer": true,
+    "ammo_types": [
+        {
+            "id": "apfsds_m829a3",
+            "name": "M829A3 APFSDS",
+            "type": "kinetic",
+            "penetration": 800,
+            "damage": 100,
+            "muzzle_velocity": 1555,
+            "mass": 10.0,
+            "drag_coefficient": 0.1,
+            "explosive_mass": 0,
+            "spall_multiplier": 1.2
+        },
+        {
+            "id": "heat_m830a1",
+            "name": "M830A1 HEAT-MP",
+            "type": "chemical",
+            "penetration": 500,
+            "damage": 150,
+            "muzzle_velocity": 1140,
+            "mass": 11.4,
+            "drag_coefficient": 0.15,
+            "explosive_mass": 2.5,
+            "spall_multiplier": 1.5
+        },
+        {
+            "id": "he_m1028",
+            "name": "M1028 HE",
+            "type": "explosive",
+            "penetration": 30,
+            "damage": 200,
+            "muzzle_velocity": 800,
+            "mass": 13.0,
+            "drag_coefficient": 0.2,
+            "explosive_mass": 4.0,
+            "spall_multiplier": 2.0,
+            "splash_radius": 5.0
+        }
+    ]
+}

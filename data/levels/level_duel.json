@@ -1,0 +1,19 @@
+{
+  "id": "level_duel",
+  "name": "双人对决",
+  "map_id": "map_desert",
+  "tanks": [
+	{
+	  "team": 1,
+	  "vehicle_id": "tank_abrams",
+	  "position": [-30, 1, 0],
+	  "rotation": 0
+	},
+	{
+	  "team": 2,
+	  "vehicle_id": "tank_t34_85",
+	  "position": [30, 1, 0],
+	  "rotation": 3.14159
+	}
+  ]
+}

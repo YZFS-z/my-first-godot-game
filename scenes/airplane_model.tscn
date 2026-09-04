@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://bairplanemodel01"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fuselage"]
+size = Vector3(1.2, 1.2, 8.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wing"]
+size = Vector3(12.0, 0.15, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tailwing"]
+size = Vector3(5.0, 0.12, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vstab"]
+size = Vector3(0.12, 2.0, 1.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_prop"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 6.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gun"]
+top_radius = 0.08
+bottom_radius = 0.1
+height = 2.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wheel"]
+top_radius = 0.32
+bottom_radius = 0.32
+height = 0.22
+radial_segments = 10
+
+[sub_resource type="BoxMesh" id="BoxMesh_gearstrut"]
+size = Vector3(0.09, 0.55, 0.09)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_body"]
+albedo_color = Color(0.4, 0.45, 0.5, 1)
+metallic = 0.3
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wing"]
+albedo_color = Color(0.35, 0.4, 0.45, 1)
+metallic = 0.2
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prop"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+metallic = 0.5
+roughness = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gear"]
+albedo_color = Color(0.12, 0.12, 0.12, 1)
+metallic = 0.4
+roughness = 0.5
+
+[node name="AirplaneModel" type="Node3D"]
+
+[node name="Fuselage" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fuselage")
+material_override = SubResource("StandardMaterial3D_body")
+position = Vector3(0, 0.5, 0)
+
+[node name="MainWing" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wing")
+material_override = SubResource("StandardMaterial3D_wing")
+position = Vector3(0, 0.6, -0.5)
+
+[node name="TailWing" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tailwing")
+material_override = SubResource("StandardMaterial3D_wing")
+position = Vector3(0, 0.8, 3.2)
+
+[node name="VerticalStab" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_vstab")
+material_override = SubResource("StandardMaterial3D_wing")
+position = Vector3(0, 1.5, 3.2)
+
+[node name="Propeller" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_prop")
+material_override = SubResource("StandardMaterial3D_prop")
+position = Vector3(0, 0.5, -4.2)
+rotation = Vector3(0, 0, 1.5708)
+
+[node name="Turret" type="Node3D" parent="."]
+position = Vector3(0, 0.5, -1.0)
+
+[node name="Gun" type="MeshInstance3D" parent="Turret"]
+mesh = SubResource("CylinderMesh_gun")
+material_override = SubResource("StandardMaterial3D_prop")
+rotation = Vector3(-1.5708, 0, 0)
+
+[node name="Muzzle" type="Node3D" parent="Turret/Gun"]
+position = Vector3(0, 1.25, 0)
+rotation = Vector3(1.5708, 0, 0)
+
+[node name="LandingGear" type="Node3D" parent="."]
+position = Vector3(0, 0.1, 0)
+
+[node name="NoseGear" type="Node3D" parent="LandingGear"]
+position = Vector3(0, 0.05, -2.8)
+
+[node name="NoseStrut" type="MeshInstance3D" parent="LandingGear/NoseGear"]
+mesh = SubResource("BoxMesh_gearstrut")
+material_override = SubResource("StandardMaterial3D_gear")
+position = Vector3(0, 0.25, 0)
+
+[node name="NoseWheel" type="MeshInstance3D" parent="LandingGear/NoseGear"]
+mesh = SubResource("CylinderMesh_wheel")
+material_override = SubResource("StandardMaterial3D_gear")
+rotation = Vector3(0, 0, 1.5708)
+
+[node name="MainGearL" type="Node3D" parent="LandingGear"]
+position = Vector3(-2.1, 0.05, -0.5)
+
+[node name="LStrut" type="MeshInstance3D" parent="LandingGear/MainGearL"]
+mesh = SubResource("BoxMesh_gearstrut")
+material_override = SubResource("StandardMaterial3D_gear")
+position = Vector3(0, 0.25, 0)
+
+[node name="LWheel" type="MeshInstance3D" parent="LandingGear/MainGearL"]
+mesh = SubResource("CylinderMesh_wheel")
+material_override = SubResource("StandardMaterial3D_gear")
+rotation = Vector3(0, 0, 1.5708)
+
+[node name="MainGearR" type="Node3D" parent="LandingGear"]
+position = Vector3(2.1, 0.05, -0.5)
+
+[node name="RStrut" type="MeshInstance3D" parent="LandingGear/MainGearR"]
+mesh = SubResource("BoxMesh_gearstrut")
+material_override = SubResource("StandardMaterial3D_gear")
+position = Vector3(0, 0.25, 0)
+
+[node name="RWheel" type="MeshInstance3D" parent="LandingGear/MainGearR"]
+mesh = SubResource("CylinderMesh_wheel")
+material_override = SubResource("StandardMaterial3D_gear")
+rotation = Vector3(0, 0, 1.5708)

@@ -1,0 +1,41 @@
+{
+    "id": "gun_30mm_m230",
+    "name": "M230 30mm链炮",
+    "caliber": 30,
+    "type": "chain_gun",
+    "reload_time": 0.2,
+    "horizontal_travel": 360,
+    "elevation_max": 15,
+    "elevation_min": -45,
+    "aim_time": 0.3,
+    "stabilizer": true,
+
+    "ammo_types": [
+        {
+            "id": "m789_hiedp",
+            "name": "M789 HEDP高爆双用途弹",
+            "type": "explosive",
+            "penetration": 50,
+            "damage": 40,
+            "muzzle_velocity": 805,
+            "mass": 0.34,
+            "drag_coefficient": 0.12,
+            "explosive_mass": 0.05,
+            "spall_multiplier": 1.5,
+            "splash_radius": 2.0
+        },
+        {
+            "id": "m799_he",
+            "name": "M799 HE高爆弹",
+            "type": "explosive",
+            "penetration": 10,
+            "damage": 55,
+            "muzzle_velocity": 805,
+            "mass": 0.34,
+            "drag_coefficient": 0.12,
+            "explosive_mass": 0.09,
+            "spall_multiplier": 2.0,
+            "splash_radius": 3.0
+        }
+    ]
+}

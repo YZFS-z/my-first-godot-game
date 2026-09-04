@@ -1,0 +1,283 @@
+{
+    "id": "tank_t34_85",
+    "name": "T-34-85",
+    "type": "tank",
+    "nation": "USSR",
+    "era": "ww2",
+    "source": "builtin",
+    "description": "苏联经典中型坦克，45mm倾斜装甲（等效90mm）、85mm ZIS-S-53主炮与500马力柴油机，1944年服役",
+    "model": {
+        "scene_path": "res://assets/models/tank_t34_85.glb",
+        "mesh_path": "",
+        "scale": 4.09,
+        "offset": [
+            0,
+            -0.039,
+            0
+        ]
+    },
+    "physics": {
+        "mass": 32000,
+        "max_speed": 55.0,
+        "max_reverse_speed": -8.0,
+        "acceleration": 2.5,
+        "deceleration": 4.0,
+        "turn_rate": 35.0,
+        "turret_turn_rate": 30.0,
+        "gun_elevation_max": 25.0,
+        "gun_elevation_min": -5.0,
+        "brake_force": 6.0
+    },
+    "armor": {
+        "hull_front": 90,
+        "hull_side": 45,
+        "hull_rear": 40,
+        "turret_front": 110,
+        "turret_side": 75,
+        "turret_rear": 52,
+        "armor_type": "rolled_homogeneous"
+    },
+    "modules": [
+        {
+            "name": "engine",
+            "display_name": "发动机",
+            "max_health": 100,
+            "armor_thickness": 12,
+            "is_critical": false,
+            "position": [
+                0,
+                0.361,
+                -1.8
+            ],
+            "size": [
+                1.2,
+                0.8,
+                1.2
+            ]
+        },
+        {
+            "name": "transmission",
+            "display_name": "传动系统",
+            "max_health": 70,
+            "armor_thickness": 8,
+            "is_critical": false,
+            "position": [
+                0,
+                0.261,
+                -0.8
+            ],
+            "size": [
+                1.0,
+                0.5,
+                0.7
+            ]
+        },
+        {
+            "name": "track_left",
+            "display_name": "左履带",
+            "max_health": 50,
+            "armor_thickness": 5,
+            "is_critical": false,
+            "position": [
+                -1.4,
+                0.211,
+                0
+            ],
+            "size": [
+                0.4,
+                0.5,
+                4.5
+            ]
+        },
+        {
+            "name": "track_right",
+            "display_name": "右履带",
+            "max_health": 50,
+            "armor_thickness": 5,
+            "is_critical": false,
+            "position": [
+                1.4,
+                0.211,
+                0
+            ],
+            "size": [
+                0.4,
+                0.5,
+                4.5
+            ]
+        },
+        {
+            "name": "turret_ring",
+            "display_name": "炮塔座圈",
+            "max_health": 80,
+            "armor_thickness": 40,
+            "is_critical": false,
+            "position": [
+                0,
+                0.961,
+                0
+            ],
+            "size": [
+                2.0,
+                0.25,
+                2.0
+            ]
+        },
+        {
+            "name": "gun",
+            "display_name": "主炮",
+            "max_health": 70,
+            "armor_thickness": 25,
+            "is_critical": false,
+            "position": [
+                0,
+                1.161,
+                2.0
+            ],
+            "size": [
+                0.25,
+                0.25,
+                2.5
+            ]
+        },
+        {
+            "name": "ammo_rack",
+            "display_name": "弹药架",
+            "max_health": 40,
+            "armor_thickness": 15,
+            "is_critical": true,
+            "position": [
+                0,
+                0.761,
+                -0.3
+            ],
+            "size": [
+                1.2,
+                0.6,
+                0.8
+            ]
+        },
+        {
+            "name": "fuel_tank",
+            "display_name": "油箱",
+            "max_health": 60,
+            "armor_thickness": 8,
+            "is_critical": false,
+            "position": [
+                -0.8,
+                0.361,
+                -1.2
+            ],
+            "size": [
+                0.6,
+                0.5,
+                0.8
+            ]
+        },
+        {
+            "name": "crew_driver",
+            "display_name": "驾驶员",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0,
+                0.561,
+                1.2
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_commander",
+            "display_name": "车长",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0.4,
+                1.161,
+                -0.2
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_gunner",
+            "display_name": "炮手",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                -0.4,
+                1.161,
+                0.3
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_loader",
+            "display_name": "装填手",
+            "max_health": 30,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0.4,
+                1.161,
+                0.3
+            ],
+            "size": [
+                0.5,
+                0.7,
+                0.5
+            ]
+        }
+    ],
+    "weapons": [
+        {
+            "slot": "primary",
+            "weapon_id": "gun_85mm_zis_s53",
+            "fire_rate": 5,
+            "ammo_capacity": 56,
+            "reload_time": 7.0
+        },
+        {
+            "slot": "secondary",
+            "weapon_id": "mg_dt_762",
+            "fire_rate": 600,
+            "ammo_capacity": 1000,
+            "reload_time": 0.1
+        }
+    ],
+    "crew_count": 4,
+    "scope": {
+        "style": "ww2_soviet",
+        "zoom_levels": [
+            2.5,
+            4.0
+        ],
+        "field_of_view": 45.0,
+        "reticle_color": "#1a1a1a",
+        "lens_color": [
+            0.95,
+            0.93,
+            0.85,
+            0.05
+        ],
+        "has_range_finder": true,
+        "has_stadiametric": true,
+        "description": "ТШ-15 炮手瞄准镜，密位分划，手动测距",
+        "range_finder_time": 2.5
+    },
+    "history": "T-34系列1940年服役，T-34-85于1943年开发、1944年列装，T-34各型累计生产约84000辆（T-34-85约48950辆）。战斗全重32吨，V-2-34柴油机500马力，公路最大速度55km/h，行程300km。主炮85mm ZIS-S-53坦克炮（备弹58发），配2挺7.62mm DT机枪。车体前装甲45mm/60度倾斜（等效约90mm），炮塔前90mm。乘员5人。倾斜装甲设计影响深远，战后多国继续使用。"
+}

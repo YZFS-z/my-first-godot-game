@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhelicopterscene01"]
+
+[ext_resource type="Script" path="res://scripts/vehicles/helicopter.gd" id="1_heli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(3.0, 3.0, 6.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_placeholder"]
+size = Vector3(1.5, 1.2, 4.0)
+
+[node name="Vehicle" type="CharacterBody3D"]
+script = ExtResource("1_heli")
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="ModelPlaceholder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+mesh = SubResource("BoxMesh_placeholder")
+visible = false
+
+[node name="Turret" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, -1.5)
+
+[node name="Gun" type="Node3D" parent="Turret"]
+
+[node name="Muzzle" type="Node3D" parent="Turret/Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)

@@ -1,0 +1,52 @@
+{
+    "id": "gun_76mm_zis5",
+    "name": "ZiS-5 76.2mm线膛炮",
+    "caliber": 76,
+    "type": "rifled",
+    "reload_time": 8.0,
+    "horizontal_travel": 360,
+    "elevation_max": 25,
+    "elevation_min": -3,
+    "aim_time": 3.0,
+    "stabilizer": false,
+
+    "ammo_types": [
+        {
+            "id": "aphe_br350a",
+            "name": "BR-350A APHEBC",
+            "type": "kinetic_explosive",
+            "penetration": 95,
+            "damage": 130,
+            "muzzle_velocity": 680,
+            "mass": 6.3,
+            "drag_coefficient": 0.14,
+            "explosive_mass": 0.5,
+            "spall_multiplier": 1.3
+        },
+        {
+            "id": "apcr_br350p",
+            "name": "BR-350P APCR",
+            "type": "kinetic",
+            "penetration": 110,
+            "damage": 70,
+            "muzzle_velocity": 950,
+            "mass": 3.0,
+            "drag_coefficient": 0.10,
+            "explosive_mass": 0.0,
+            "spall_multiplier": 0.8
+        },
+        {
+            "id": "he_of350",
+            "name": "OF-350 HE",
+            "type": "explosive",
+            "penetration": 30,
+            "damage": 150,
+            "muzzle_velocity": 680,
+            "mass": 6.2,
+            "drag_coefficient": 0.18,
+            "explosive_mass": 0.8,
+            "spall_multiplier": 1.8,
+            "splash_radius": 3.5
+        }
+    ]
+}

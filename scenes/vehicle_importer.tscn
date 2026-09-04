@@ -1,0 +1,1003 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvehicleimport01"]
+
+[ext_resource type="Script" path="res://scripts/ui/vehicle_importer.gd" id="1_importer"]
+
+[node name="VehicleImporter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_importer")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "选择3D模型文件"
+size = Vector2i(700, 500)
+filters = PackedStringArray("*.glb ; GLTF Binary", "*.gltf ; GLTF", "*.obj ; Wavefront OBJ", "*.dae ; Collada", "*.fbx ; FBX")
+access = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "导入载具资源"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="ModelRow" type="HBoxContainer" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ModelLabel" type="Label" parent="Panel/Scroll/VBox/ModelRow"]
+layout_mode = 2
+text = "模型文件:"
+custom_minimum_size = Vector2(80, 0)
+
+[node name="ModelPathLabel" type="Label" parent="Panel/Scroll/VBox/ModelRow"]
+layout_mode = 2
+text = "未选择"
+size_flags_horizontal = 3
+modulate = Color(0.6, 0.65, 0.7, 1)
+
+[node name="BrowseButton" type="Button" parent="Panel/Scroll/VBox/ModelRow"]
+layout_mode = 2
+text = "浏览..."
+
+[node name="FormGrid" type="GridContainer" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+
+[node name="IDLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "载具ID:"
+
+[node name="IDInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: tank_panther"
+
+[node name="NameLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "载具名称:"
+
+[node name="NameInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 黑豹"
+
+[node name="NationLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "国家:"
+
+[node name="NationInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="TypeLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "载具类型:"
+
+[node name="TypeOption" type="OptionButton" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="EraLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "年代:"
+
+[node name="EraInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="MassLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "重量(kg):"
+
+[node name="MassInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="SpeedLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "最大速度:"
+
+[node name="SpeedInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="TurretRateLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "炮塔转速(度/秒):"
+
+[node name="TurretRateInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="WeaponLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "主武器:"
+
+[node name="WeaponOption" type="OptionButton" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="FireRateLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "射速(发/分):"
+
+[node name="FireRateInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 6"
+
+[node name="AmmoCapacityLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "备弹量:"
+
+[node name="AmmoCapacityInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="ReloadTimeLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "装填时间(秒):"
+
+[node name="ReloadTimeInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5.0"
+
+[node name="SecondaryWeaponLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "副武器:"
+
+[node name="SecondaryWeaponOption" type="OptionButton" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+
+[node name="SecFireRateLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "副武器射速:"
+
+[node name="SecFireRateInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 200"
+
+[node name="SecAmmoCapLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "副武器备弹:"
+
+[node name="SecAmmoCapInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 2000"
+
+[node name="SecReloadLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "副武器装填(秒):"
+
+[node name="SecReloadInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0.5"
+
+[node name="ArmorTitleLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 装甲参数 ——"
+modulate = Color(0.7, 0.8, 1.0, 1)
+
+[node name="ArmorTitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="HullFrontLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "车体前装甲(mm):"
+
+[node name="HullFrontInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 100"
+
+[node name="HullSideLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "车体侧装甲(mm):"
+
+[node name="HullSideInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 50"
+
+[node name="HullRearLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "车体后装甲(mm):"
+
+[node name="HullRearInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="TurretFrontLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "炮塔前装甲(mm):"
+
+[node name="TurretFrontInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 120"
+
+[node name="TurretSideLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "炮塔侧装甲(mm):"
+
+[node name="TurretSideInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 60"
+
+[node name="TurretRearLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "炮塔后装甲(mm):"
+
+[node name="TurretRearInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="PhysicsTitleLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 机动参数 ——"
+modulate = Color(0.7, 0.8, 1.0, 1)
+
+[node name="PhysicsTitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="AccelerationLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "加速度(m/s²):"
+
+[node name="AccelerationInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 3.0"
+
+[node name="DecelerationLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "减速度(m/s²):"
+
+[node name="DecelerationInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5.0"
+
+[node name="TurnRateLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "转向速率(度/秒):"
+
+[node name="TurnRateInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="BrakeForceLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "制动力:"
+
+[node name="BrakeForceInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 6.0"
+
+[node name="GunElevMaxLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "主炮最大仰角(度):"
+
+[node name="GunElevMaxInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 20"
+
+[node name="GunElevMinLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "主炮最大俯角(度):"
+
+[node name="GunElevMinInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: -10"
+
+
+[node name="Mod_engine_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 发动机 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_engine_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_engine_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_engine_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 100"
+
+[node name="Mod_engine_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_engine_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 12"
+
+[node name="Mod_transmission_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 传动系统 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_transmission_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_transmission_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_transmission_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 70"
+
+[node name="Mod_transmission_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_transmission_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 8"
+
+[node name="Mod_track_left_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 左履带 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_track_left_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_track_left_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_track_left_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 50"
+
+[node name="Mod_track_left_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_track_left_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5"
+
+[node name="Mod_track_right_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 右履带 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_track_right_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_track_right_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_track_right_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 50"
+
+[node name="Mod_track_right_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_track_right_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5"
+
+[node name="Mod_turret_ring_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 炮塔座圈 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_turret_ring_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_turret_ring_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_turret_ring_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 80"
+
+[node name="Mod_turret_ring_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_turret_ring_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="Mod_gun_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 主炮 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_gun_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_gun_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_gun_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 70"
+
+[node name="Mod_gun_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_gun_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 25"
+
+[node name="Mod_ammo_rack_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 弹药架 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_ammo_rack_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_ammo_rack_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_ammo_rack_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="Mod_ammo_rack_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_ammo_rack_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 15"
+
+[node name="Mod_fuel_tank_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 油箱 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_fuel_tank_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_fuel_tank_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_fuel_tank_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 60"
+
+[node name="Mod_fuel_tank_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_fuel_tank_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 8"
+
+[node name="Mod_crew_driver_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 驾驶员 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_crew_driver_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_crew_driver_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_crew_driver_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="Mod_crew_driver_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_crew_driver_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_crew_commander_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 车长 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_crew_commander_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_crew_commander_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_crew_commander_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="Mod_crew_commander_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_crew_commander_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_crew_gunner_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 炮手 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_crew_gunner_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_crew_gunner_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_crew_gunner_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="Mod_crew_gunner_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_crew_gunner_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_crew_loader_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 装填手 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_crew_loader_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_crew_loader_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_crew_loader_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="Mod_crew_loader_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_crew_loader_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_main_rotor_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 主旋翼 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_main_rotor_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_main_rotor_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_main_rotor_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 80"
+
+[node name="Mod_main_rotor_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_main_rotor_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_tail_rotor_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 尾旋翼 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_tail_rotor_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_tail_rotor_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_tail_rotor_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="Mod_tail_rotor_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_tail_rotor_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_crew_pilot_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 飞行员 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_crew_pilot_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_crew_pilot_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_crew_pilot_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 30"
+
+[node name="Mod_crew_pilot_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_crew_pilot_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0"
+
+[node name="Mod_left_wing_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 左机翼 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_left_wing_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_left_wing_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_left_wing_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 70"
+
+[node name="Mod_left_wing_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_left_wing_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5"
+
+[node name="Mod_right_wing_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 右机翼 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_right_wing_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_right_wing_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_right_wing_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 70"
+
+[node name="Mod_right_wing_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_right_wing_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5"
+
+[node name="Mod_tail_Title" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 尾翼 ——"
+modulate = Color(0.8, 0.9, 1.0, 1)
+
+[node name="Mod_tail_TitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="Mod_tail_HealthLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  血量:"
+
+[node name="Mod_tail_HealthInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="Mod_tail_ArmorLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "  装甲(mm):"
+
+[node name="Mod_tail_ArmorInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 3"
+
+[node name="HeliTitleLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 直升机参数 ——"
+modulate = Color(0.7, 0.8, 1.0, 1)
+
+[node name="HeliTitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="MaxLiftForceLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "最大升力:"
+
+[node name="MaxLiftForceInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 25000"
+
+[node name="HoverCollectiveLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "悬停总距:"
+
+[node name="HoverCollectiveInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0.55"
+
+[node name="YawTorqueLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "偏航扭矩:"
+
+[node name="YawTorqueInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 800"
+
+[node name="PitchTorqueLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "俯仰扭矩:"
+
+[node name="PitchTorqueInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 1200"
+
+[node name="RollTorqueLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "滚转扭矩:"
+
+[node name="RollTorqueInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 1000"
+
+[node name="BankLimitLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "倾斜限制(度):"
+
+[node name="BankLimitInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 60"
+
+[node name="CruiseSpeedLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "巡航速度(m/s):"
+
+[node name="CruiseSpeedInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 40"
+
+[node name="CrashImpactLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "坠毁冲击倍率:"
+
+[node name="CrashImpactInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 1.0"
+
+[node name="PlaneTitleLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "—— 固定翼飞机参数 ——"
+modulate = Color(0.7, 0.8, 1.0, 1)
+
+[node name="PlaneTitleSpacer" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = ""
+
+[node name="MaxThrustLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "最大推力(N):"
+
+[node name="MaxThrustInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 80000"
+
+[node name="WingAreaLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "机翼面积(m²):"
+
+[node name="WingAreaInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 25.0"
+
+[node name="ClAlphaLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "升力系数斜率:"
+
+[node name="ClAlphaInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 4.5"
+
+[node name="DragCoeffLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "阻力系数:"
+
+[node name="DragCoeffInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 0.02"
+
+[node name="MaxAoaLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "最大迎角(度):"
+
+[node name="MaxAoaInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 15"
+
+[node name="TakeoffSpeedLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "起飞速度(m/s):"
+
+[node name="TakeoffSpeedInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 45"
+
+[node name="StallSpeedLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "失速速度(m/s):"
+
+[node name="StallSpeedInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 35"
+
+[node name="InertiaRollLabel" type="Label" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+text = "滚转惯量:"
+
+[node name="InertiaRollInput" type="LineEdit" parent="Panel/Scroll/VBox/FormGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(250, 32)
+placeholder_text = "如: 5000"
+
+[node name="ImportButton" type="Button" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+text = "导入载具"
+theme_override_font_sizes/font_size = 18
+
+[node name="CancelButton" type="Button" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+text = "取消"
+
+[node name="StatusLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "选择3D模型文件开始导入"
+horizontal_alignment = 1
+modulate = Color(0.6, 0.65, 0.7, 1)

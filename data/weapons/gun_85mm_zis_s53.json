@@ -1,0 +1,52 @@
+{
+    "id": "gun_85mm_zis_s53",
+    "name": "ZiS-S-53 85mm线膛炮",
+    "caliber": 85,
+    "type": "rifled",
+    "reload_time": 7.0,
+    "horizontal_travel": 360,
+    "elevation_max": 25,
+    "elevation_min": -5,
+    "aim_time": 2.0,
+    "stabilizer": false,
+
+    "ammo_types": [
+        {
+            "id": "apcbc_br365a",
+            "name": "BR-365A APCBC",
+            "type": "kinetic",
+            "penetration": 160,
+            "damage": 80,
+            "muzzle_velocity": 792,
+            "mass": 9.2,
+            "drag_coefficient": 0.12,
+            "explosive_mass": 0.15,
+            "spall_multiplier": 1.0
+        },
+        {
+            "id": "aphe_br365k",
+            "name": "BR-365K APHE",
+            "type": "kinetic_explosive",
+            "penetration": 140,
+            "damage": 120,
+            "muzzle_velocity": 792,
+            "mass": 9.2,
+            "drag_coefficient": 0.12,
+            "explosive_mass": 0.6,
+            "spall_multiplier": 1.3
+        },
+        {
+            "id": "he_o365k",
+            "name": "O-365K HE",
+            "type": "explosive",
+            "penetration": 20,
+            "damage": 160,
+            "muzzle_velocity": 792,
+            "mass": 9.0,
+            "drag_coefficient": 0.18,
+            "explosive_mass": 0.7,
+            "spall_multiplier": 1.8,
+            "splash_radius": 3.5
+        }
+    ]
+}

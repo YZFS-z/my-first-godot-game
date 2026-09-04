@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://bammoeditor01"]
+
+[ext_resource type="Script" path="res://scripts/ui/ammo_editor.gd" id="1_ammo"]
+
+[node name="AmmoEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ammo")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.1, 0.13, 0.95)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "弹药编辑器"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="TopRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="WeaponLabel" type="Label" parent="Panel/VBox/TopRow"]
+layout_mode = 2
+text = "选择武器："
+custom_minimum_size = Vector2(90, 0)
+
+[node name="WeaponOption" type="OptionButton" parent="Panel/VBox/TopRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 36)
+
+[node name="ReloadButton" type="Button" parent="Panel/VBox/TopRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "重新加载"
+
+[node name="AmmoList" type="ItemList" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 120)
+
+[node name="EditGrid" type="GridContainer" parent="Panel/VBox"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 6
+
+[node name="NameLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "弹药名称："
+
+[node name="NameInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 32)
+
+[node name="TypeLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "弹药类型："
+
+[node name="TypeOption" type="OptionButton" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="DamageLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "伤害："
+
+[node name="DamageInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="PenLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "穿深(mm)："
+
+[node name="PenInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="SpeedLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "初速(m/s)："
+
+[node name="SpeedInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="CountLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "备弹数："
+
+[node name="CountInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="ExpMassLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "炸药量(kg)："
+
+[node name="ExpMassInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="SplashLabel" type="Label" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+text = "溅射半径(m)："
+
+[node name="SplashInput" type="LineEdit" parent="Panel/VBox/EditGrid"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 32)
+
+[node name="ButtonRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SaveButton" type="Button" parent="Panel/VBox/ButtonRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+size_flags_horizontal = 3
+text = "保存修改"
+
+[node name="CloseButton" type="Button" parent="Panel/VBox/ButtonRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 40)
+text = "关闭"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+modulate = Color(0.6, 0.9, 0.6, 1)

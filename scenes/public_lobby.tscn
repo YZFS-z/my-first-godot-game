@@ -1,0 +1,482 @@
+[gd_scene format=3 uid="uid://spaiuqrxa37a"]
+
+[ext_resource type="Script" path="res://scripts/ui/public_lobby.gd" id="1"]
+
+[node name="PublicLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.12, 0.15, 0.95)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 20.0
+offset_right = 1280.0
+offset_bottom = 60.0
+text = "公网联机大厅"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 55.0
+text = "返回"
+
+[node name="LoginPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 130.0
+offset_right = 840.0
+offset_bottom = 530.0
+
+[node name="VBox" type="VBoxContainer" parent="LoginPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LoginTitle" type="Label" parent="LoginPanel/VBox"]
+layout_mode = 2
+text = "登录 / 注册"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="ServerLabel" type="Label" parent="LoginPanel/VBox"]
+layout_mode = 2
+text = "服务器地址:"
+
+[node name="ServerInput" type="LineEdit" parent="LoginPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+placeholder_text = "game.thefeishu.top:8765"
+
+[node name="UsernameLabel" type="Label" parent="LoginPanel/VBox"]
+layout_mode = 2
+text = "用户名:"
+
+[node name="UsernameInput" type="LineEdit" parent="LoginPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+placeholder_text = "输入用户名"
+
+[node name="PasswordLabel" type="Label" parent="LoginPanel/VBox"]
+layout_mode = 2
+text = "密码:"
+
+[node name="PasswordInput" type="LineEdit" parent="LoginPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+placeholder_text = "输入密码"
+secret = true
+
+[node name="ButtonRow" type="HBoxContainer" parent="LoginPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LoginButton" type="Button" parent="LoginPanel/VBox/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+text = "登录"
+
+[node name="RegisterButton" type="Button" parent="LoginPanel/VBox/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 40)
+text = "注册"
+
+[node name="StatusLabel" type="Label" parent="LoginPanel/VBox"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 1240.0
+offset_bottom = 700.0
+
+[node name="MainVBox" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TopBar" type="HBoxContainer" parent="MainPanel/MainVBox"]
+layout_mode = 2
+
+[node name="WelcomeLabel" type="Label" parent="MainPanel/MainVBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "欢迎, 玩家"
+theme_override_font_sizes/font_size = 18
+
+[node name="ConnStatusLabel" type="Label" parent="MainPanel/MainVBox/TopBar"]
+layout_mode = 2
+text = "● 已连接"
+theme_override_colors/font_color = Color(0.3, 1, 0.3, 1)
+
+[node name="LogoutButton" type="Button" parent="MainPanel/MainVBox/TopBar"]
+layout_mode = 2
+text = "登出"
+
+[node name="Tabs" type="TabContainer" parent="MainPanel/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="房间" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs"]
+
+[node name="RoomToolbar" type="HBoxContainer" parent="MainPanel/MainVBox/Tabs/房间"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RefreshRoomsButton" type="Button" parent="MainPanel/MainVBox/Tabs/房间/RoomToolbar"]
+layout_mode = 2
+text = "刷新列表"
+
+[node name="CreateRoomButton" type="Button" parent="MainPanel/MainVBox/Tabs/房间/RoomToolbar"]
+layout_mode = 2
+text = "创建房间"
+
+[node name="RoomListScroll" type="ScrollContainer" parent="MainPanel/MainVBox/Tabs/房间"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RoomList" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs/房间/RoomListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="好友" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs"]
+
+[node name="FriendToolbar" type="HBoxContainer" parent="MainPanel/MainVBox/Tabs/好友"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AddFriendInput" type="LineEdit" parent="MainPanel/MainVBox/Tabs/好友/FriendToolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 32)
+placeholder_text = "输入用户名添加好友"
+
+[node name="AddFriendButton" type="Button" parent="MainPanel/MainVBox/Tabs/好友/FriendToolbar"]
+layout_mode = 2
+text = "添加"
+
+[node name="FriendRequestsLabel" type="Label" parent="MainPanel/MainVBox/Tabs/好友"]
+layout_mode = 2
+text = "好友请求:"
+theme_override_font_sizes/font_size = 14
+
+[node name="FriendRequestsScroll" type="ScrollContainer" parent="MainPanel/MainVBox/Tabs/好友"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 100)
+
+[node name="FriendRequestsList" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs/好友/FriendRequestsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FriendListLabel" type="Label" parent="MainPanel/MainVBox/Tabs/好友"]
+layout_mode = 2
+text = "好友列表:"
+theme_override_font_sizes/font_size = 14
+
+[node name="FriendListScroll" type="ScrollContainer" parent="MainPanel/MainVBox/Tabs/好友"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FriendList" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs/好友/FriendListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="组队" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs"]
+
+[node name="PartyInfoLabel" type="Label" parent="MainPanel/MainVBox/Tabs/组队"]
+layout_mode = 2
+text = "当前未组队"
+theme_override_font_sizes/font_size = 16
+
+[node name="PartyMemberList" type="VBoxContainer" parent="MainPanel/MainVBox/Tabs/组队"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyInviteRow" type="HBoxContainer" parent="MainPanel/MainVBox/Tabs/组队"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PartyInviteInput" type="LineEdit" parent="MainPanel/MainVBox/Tabs/组队/PartyInviteRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 32)
+placeholder_text = "输入好友用户名邀请组队"
+
+[node name="PartyInviteButton" type="Button" parent="MainPanel/MainVBox/Tabs/组队/PartyInviteRow"]
+layout_mode = 2
+text = "邀请组队"
+
+[node name="PartyLeaveButton" type="Button" parent="MainPanel/MainVBox/Tabs/组队"]
+layout_mode = 2
+text = "离开组队"
+
+[node name="RoomDetailPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 1240.0
+offset_bottom = 700.0
+
+[node name="RoomDetailVBox" type="VBoxContainer" parent="RoomDetailPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RoomDetailTop" type="HBoxContainer" parent="RoomDetailPanel/RoomDetailVBox"]
+layout_mode = 2
+
+[node name="RoomNameLabel" type="Label" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailTop"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "房间"
+theme_override_font_sizes/font_size = 20
+
+[node name="LeaveRoomButton" type="Button" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailTop"]
+layout_mode = 2
+text = "离开房间"
+
+[node name="RoomDetailContent" type="HBoxContainer" parent="RoomDetailPanel/RoomDetailVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="PlayerPanel" type="VBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerListLabel" type="Label" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel"]
+layout_mode = 2
+text = "玩家列表:"
+theme_override_font_sizes/font_size = 16
+
+[node name="PlayerListScroll" type="ScrollContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerList" type="VBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel/PlayerListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TeamSelect" type="HBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+
+[node name="Team1Button" type="Button" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel/TeamSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "队伍1 (蓝方)"
+
+[node name="Team2Button" type="Button" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel/TeamSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "队伍2 (红方)"
+
+[node name="VehicleSelect" type="HBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+theme_override_constants/separation = 8
+
+[node name="VehicleLabel" type="Label" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel/VehicleSelect"]
+layout_mode = 2
+text = "载具:"
+custom_minimum_size = Vector2(50, 0)
+
+[node name="VehicleOption" type="OptionButton" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel/VehicleSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReadyButton" type="Button" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "准备"
+
+[node name="StartGameButton" type="Button" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/PlayerPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "开始游戏"
+
+[node name="ChatPanel" type="VBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChatLabel" type="Label" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/ChatPanel"]
+layout_mode = 2
+text = "房间聊天:"
+theme_override_font_sizes/font_size = 16
+
+[node name="ChatScroll" type="ScrollContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/ChatPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChatBox" type="VBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/ChatPanel/ChatScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChatInputRow" type="HBoxContainer" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/ChatPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ChatInput" type="LineEdit" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/ChatPanel/ChatInputRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 32)
+placeholder_text = "输入消息..."
+
+[node name="ChatSendButton" type="Button" parent="RoomDetailPanel/RoomDetailVBox/RoomDetailContent/ChatPanel/ChatInputRow"]
+layout_mode = 2
+text = "发送"
+
+[node name="CreateRoomDialog" type="Window" parent="."]
+title = "创建房间"
+initial_position = 1
+size = Vector2i(420, 520)
+unresizable = true
+visible = false
+
+[node name="DialogVBox" type="VBoxContainer" parent="CreateRoomDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+theme_override_constants/separation = 12
+
+[node name="CRNameLabel" type="Label" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+text = "房间名称:"
+
+[node name="CRNameInput" type="LineEdit" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+text = "我的房间"
+
+[node name="CRMapLabel" type="Label" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+text = "地图:"
+
+[node name="CRMapOption" type="OptionButton" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+
+[node name="CRMaxLabel" type="Label" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+text = "最大人数:"
+
+[node name="CRMaxSpin" type="SpinBox" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+min_value = 2.0
+max_value = 16.0
+value = 8.0
+
+[node name="CRPasswordLabel" type="Label" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+text = "密码(可选):"
+
+[node name="CRPasswordInput" type="LineEdit" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+placeholder_text = "留空为公开房间"
+
+[node name="CRButtonRow" type="HBoxContainer" parent="CreateRoomDialog/DialogVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CRCancelButton" type="Button" parent="CreateRoomDialog/DialogVBox/CRButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "取消"
+
+[node name="CRConfirmButton" type="Button" parent="CreateRoomDialog/DialogVBox/CRButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "创建"
+
+[node name="JoinRoomDialog" type="Window" parent="."]
+title = "加入房间"
+initial_position = 1
+size = Vector2i(360, 220)
+unresizable = true
+visible = false
+
+[node name="JoinVBox" type="VBoxContainer" parent="JoinRoomDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+theme_override_constants/separation = 12
+
+[node name="JoinRoomNameLabel" type="Label" parent="JoinRoomDialog/JoinVBox"]
+layout_mode = 2
+text = "房间:"
+
+[node name="JoinPasswordLabel" type="Label" parent="JoinRoomDialog/JoinVBox"]
+layout_mode = 2
+text = "请输入房间密码:"
+
+[node name="JoinPasswordInput" type="LineEdit" parent="JoinRoomDialog/JoinVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+placeholder_text = "输入密码"
+secret = true
+
+[node name="JoinStatusLabel" type="Label" parent="JoinRoomDialog/JoinVBox"]
+layout_mode = 2
+text = ""
+modulate = Color(1, 0.4, 0.4, 1)
+
+[node name="JoinButtonRow" type="HBoxContainer" parent="JoinRoomDialog/JoinVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="JoinCancelButton" type="Button" parent="JoinRoomDialog/JoinVBox/JoinButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "取消"
+
+[node name="JoinConfirmButton" type="Button" parent="JoinRoomDialog/JoinVBox/JoinButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "加入"
+
+[node name="GlobalStatus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 710.0
+offset_right = 1240.0
+offset_bottom = 735.0
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14

@@ -1,0 +1,50 @@
+{
+    "id": "mg_dt_762",
+    "name": "DT 7.62mm机枪",
+    "caliber": 8,
+    "type": "machine_gun",
+    "reload_time": 0.1,
+    "horizontal_travel": 360,
+    "elevation_max": 30,
+    "elevation_min": -10,
+    "aim_time": 0.5,
+    "stabilizer": false,
+    "ammo_types": [
+        {
+            "id": "dt_ap_762",
+            "name": "7.62mm 穿甲弹",
+            "type": "kinetic",
+            "penetration": 15,
+            "damage": 5,
+            "muzzle_velocity": 840,
+            "mass": 0.011,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.0,
+            "spall_multiplier": 0.5
+        },
+        {
+            "id": "dt_ap_i_762",
+            "name": "7.62mm 穿甲燃烧弹",
+            "type": "kinetic_explosive",
+            "penetration": 16,
+            "damage": 6,
+            "muzzle_velocity": 840,
+            "mass": 0.011,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.003,
+            "spall_multiplier": 0.6
+        },
+        {
+            "id": "dt_tracer_762",
+            "name": "7.62mm 曳光弹",
+            "type": "kinetic",
+            "penetration": 13,
+            "damage": 5,
+            "muzzle_velocity": 840,
+            "mass": 0.011,
+            "drag_coefficient": 0.08,
+            "explosive_mass": 0.0,
+            "spall_multiplier": 0.5
+        }
+    ]
+}

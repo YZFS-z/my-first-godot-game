@@ -1,0 +1,580 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsettings0001"]
+
+[ext_resource type="Script" path="res://scripts/ui/settings.gd" id="1_settings"]
+
+[sub_resource type="StyleBoxFlat" id="1_panel_bg"]
+bg_color = Color(0.12, 0.14, 0.18, 0.97)
+
+[node name="SettingsDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.88)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("1_panel_bg")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "游戏设置"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="Tabs" type="TabContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 60.0
+offset_right = -20.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Window" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ResRow" type="HBoxContainer" parent="Panel/Tabs/Window"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ResLabel" type="Label" parent="Panel/Tabs/Window/ResRow"]
+layout_mode = 2
+text = "分辨率："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="ResolutionOption" type="OptionButton" parent="Panel/Tabs/Window/ResRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="FullscreenRow" type="HBoxContainer" parent="Panel/Tabs/Window"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="FullscreenLabel" type="Label" parent="Panel/Tabs/Window/FullscreenRow"]
+layout_mode = 2
+text = "全屏模式："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="FullscreenCheck" type="CheckBox" parent="Panel/Tabs/Window/FullscreenRow"]
+layout_mode = 2
+text = "启用全屏"
+
+[node name="VsyncRow" type="HBoxContainer" parent="Panel/Tabs/Window"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VsyncLabel" type="Label" parent="Panel/Tabs/Window/VsyncRow"]
+layout_mode = 2
+text = "垂直同步："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="VsyncCheck" type="CheckBox" parent="Panel/Tabs/Window/VsyncRow"]
+layout_mode = 2
+text = "启用垂直同步"
+
+[node name="WindowHint" type="Label" parent="Panel/Tabs/Window"]
+layout_mode = 2
+text = "提示：更改分辨率后窗口会立即调整大小"
+modulate = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Language" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LangRow" type="HBoxContainer" parent="Panel/Tabs/Language"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="LangLabel" type="Label" parent="Panel/Tabs/Language/LangRow"]
+layout_mode = 2
+text = "界面语言："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="LanguageOption" type="OptionButton" parent="Panel/Tabs/Language/LangRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="LangHint" type="Label" parent="Panel/Tabs/Language"]
+layout_mode = 2
+text = "语言更改将在下次启动时完全生效"
+modulate = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Audio" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MasterRow" type="VBoxContainer" parent="Panel/Tabs/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MasterLabel" type="Label" parent="Panel/Tabs/Audio/MasterRow"]
+layout_mode = 2
+text = "主音量：80%"
+theme_override_font_sizes/font_size = 16
+
+[node name="MasterSlider" type="HSlider" parent="Panel/Tabs/Audio/MasterRow"]
+layout_mode = 2
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 80.0
+custom_minimum_size = Vector2(0, 24)
+
+[node name="SfxRow" type="VBoxContainer" parent="Panel/Tabs/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SfxLabel" type="Label" parent="Panel/Tabs/Audio/SfxRow"]
+layout_mode = 2
+text = "音效音量：100%"
+theme_override_font_sizes/font_size = 16
+
+[node name="SfxSlider" type="HSlider" parent="Panel/Tabs/Audio/SfxRow"]
+layout_mode = 2
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+custom_minimum_size = Vector2(0, 24)
+
+[node name="MusicRow" type="VBoxContainer" parent="Panel/Tabs/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MusicLabel" type="Label" parent="Panel/Tabs/Audio/MusicRow"]
+layout_mode = 2
+text = "音乐音量：70%"
+theme_override_font_sizes/font_size = 16
+
+[node name="MusicSlider" type="HSlider" parent="Panel/Tabs/Audio/MusicRow"]
+layout_mode = 2
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 70.0
+custom_minimum_size = Vector2(0, 24)
+
+[node name="Graphics" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="QualityRow" type="HBoxContainer" parent="Panel/Tabs/Graphics"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="QualityLabel" type="Label" parent="Panel/Tabs/Graphics/QualityRow"]
+layout_mode = 2
+text = "画质预设："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="QualityOption" type="OptionButton" parent="Panel/Tabs/Graphics/QualityRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="MsaaRow" type="HBoxContainer" parent="Panel/Tabs/Graphics"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MsaaLabel" type="Label" parent="Panel/Tabs/Graphics/MsaaRow"]
+layout_mode = 2
+text = "抗锯齿："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="MsaaOption" type="OptionButton" parent="Panel/Tabs/Graphics/MsaaRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="ShadowRow" type="HBoxContainer" parent="Panel/Tabs/Graphics"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ShadowLabel" type="Label" parent="Panel/Tabs/Graphics/ShadowRow"]
+layout_mode = 2
+text = "阴影："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="ShadowCheck" type="CheckBox" parent="Panel/Tabs/Graphics/ShadowRow"]
+layout_mode = 2
+text = "启用阴影"
+
+[node name="GraphicsHint" type="Label" parent="Panel/Tabs/Graphics"]
+layout_mode = 2
+text = "画质更改将在下次启动时完全生效"
+modulate = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Gameplay" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MobileRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MobileLabel" type="Label" parent="Panel/Tabs/Gameplay/MobileRow"]
+layout_mode = 2
+text = "移动端模式："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="MobileCheck" type="CheckBox" parent="Panel/Tabs/Gameplay/MobileRow"]
+layout_mode = 2
+text = "启用触摸控制（重启战斗生效）"
+
+[node name="CrosshairSizeRow" type="VBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="CrosshairSizeLabel" type="Label" parent="Panel/Tabs/Gameplay/CrosshairSizeRow"]
+layout_mode = 2
+text = "准心大小：100%"
+theme_override_font_sizes/font_size = 16
+
+[node name="CrosshairSizeSlider" type="HSlider" parent="Panel/Tabs/Gameplay/CrosshairSizeRow"]
+layout_mode = 2
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+custom_minimum_size = Vector2(0, 24)
+
+[node name="CrosshairColorRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CrosshairColorLabel" type="Label" parent="Panel/Tabs/Gameplay/CrosshairColorRow"]
+layout_mode = 2
+text = "准心颜色："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="CrosshairColorPicker" type="ColorPickerButton" parent="Panel/Tabs/Gameplay/CrosshairColorRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="ScopeStyleRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ScopeStyleLabel" type="Label" parent="Panel/Tabs/Gameplay/ScopeStyleRow"]
+layout_mode = 2
+text = "瞄准镜样式："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="ScopeStyleOption" type="OptionButton" parent="Panel/Tabs/Gameplay/ScopeStyleRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="RangeFontRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="RangeFontLabel" type="Label" parent="Panel/Tabs/Gameplay/RangeFontRow"]
+layout_mode = 2
+text = "测距文字大小："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="RangeFontOption" type="OptionButton" parent="Panel/Tabs/Gameplay/RangeFontRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+
+[node name="RangeColorRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="RangeColorLabel" type="Label" parent="Panel/Tabs/Gameplay/RangeColorRow"]
+layout_mode = 2
+text = "测距文字颜色："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="RangeColorPicker" type="ColorPickerButton" parent="Panel/Tabs/Gameplay/RangeColorRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+
+[node name="AutoAimRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="AutoAimLabel" type="Label" parent="Panel/Tabs/Gameplay/AutoAimRow"]
+layout_mode = 2
+text = "测距后自动抬炮："
+custom_minimum_size = Vector2(160, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="AutoAimCheck" type="CheckBox" parent="Panel/Tabs/Gameplay/AutoAimRow"]
+layout_mode = 2
+
+[node name="CcipColorRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CcipColorLabel" type="Label" parent="Panel/Tabs/Gameplay/CcipColorRow"]
+layout_mode = 2
+text = "CCIP落点颜色："
+custom_minimum_size = Vector2(160, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="CcipColorPicker" type="ColorPickerButton" parent="Panel/Tabs/Gameplay/CcipColorRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+
+[node name="CcipSizeRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CcipSizeLabel" type="Label" parent="Panel/Tabs/Gameplay/CcipSizeRow"]
+layout_mode = 2
+text = "CCIP落点大小："
+custom_minimum_size = Vector2(160, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="CcipSizeSpin" type="SpinBox" parent="Panel/Tabs/Gameplay/CcipSizeRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+min_value = 0.5
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="InvertYRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="InvertYLabel" type="Label" parent="Panel/Tabs/Gameplay/InvertYRow"]
+layout_mode = 2
+text = "反转鼠标Y轴："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="InvertYCheck" type="CheckBox" parent="Panel/Tabs/Gameplay/InvertYRow"]
+layout_mode = 2
+
+[node name="CustomContentRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CustomContentLabel" type="Label" parent="Panel/Tabs/Gameplay/CustomContentRow"]
+layout_mode = 2
+text = "允许自定义内容："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="CustomContentCheck" type="CheckBox" parent="Panel/Tabs/Gameplay/CustomContentRow"]
+layout_mode = 2
+
+[node name="BackgroundRow" type="HBoxContainer" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="BackgroundLabel" type="Label" parent="Panel/Tabs/Gameplay/BackgroundRow"]
+layout_mode = 2
+text = "菜单背景："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="BackgroundOption" type="OptionButton" parent="Panel/Tabs/Gameplay/BackgroundRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+
+[node name="GameplayHint" type="Label" parent="Panel/Tabs/Gameplay"]
+layout_mode = 2
+text = "准心和瞄准镜设置在下次开镜/开战时生效"
+modulate = Color(0.6, 0.6, 0.6, 1)
+
+[node name="网络" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NetTitle" type="Label" parent="Panel/Tabs/网络"]
+layout_mode = 2
+text = "公网联机设置"
+theme_override_font_sizes/font_size = 18
+
+[node name="ServerHostRow" type="HBoxContainer" parent="Panel/Tabs/网络"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ServerHostLabel" type="Label" parent="Panel/Tabs/网络/ServerHostRow"]
+layout_mode = 2
+text = "服务器地址："
+custom_minimum_size = Vector2(120, 0)
+
+[node name="ServerHostInput" type="LineEdit" parent="Panel/Tabs/网络/ServerHostRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 36)
+placeholder_text = "game.thefeishu.top"
+
+[node name="ServerPortRow" type="HBoxContainer" parent="Panel/Tabs/网络"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ServerPortLabel" type="Label" parent="Panel/Tabs/网络/ServerPortRow"]
+layout_mode = 2
+text = "服务器端口："
+custom_minimum_size = Vector2(120, 0)
+
+[node name="ServerPortInput" type="LineEdit" parent="Panel/Tabs/网络/ServerPortRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+placeholder_text = "8765"
+
+[node name="LanPortRow" type="HBoxContainer" parent="Panel/Tabs/网络"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="LanPortLabel" type="Label" parent="Panel/Tabs/网络/LanPortRow"]
+layout_mode = 2
+text = "局域网端口："
+custom_minimum_size = Vector2(120, 0)
+
+[node name="LanPortInput" type="LineEdit" parent="Panel/Tabs/网络/LanPortRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+placeholder_text = "7777"
+
+[node name="NetHint" type="Label" parent="Panel/Tabs/网络"]
+layout_mode = 2
+text = "修改后需重启游戏或重新连接公网大厅生效"
+modulate = Color(0.6, 0.6, 0.6, 1)
+
+[node name="输入" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NicknameRow" type="HBoxContainer" parent="Panel/Tabs/输入"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NicknameLabel" type="Label" parent="Panel/Tabs/输入/NicknameRow"]
+layout_mode = 2
+text = "玩家昵称："
+custom_minimum_size = Vector2(120, 0)
+theme_override_font_sizes/font_size = 16
+
+[node name="NicknameInput" type="LineEdit" parent="Panel/Tabs/输入/NicknameRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 36)
+placeholder_text = "输入昵称"
+
+[node name="KeyListLabel" type="Label" parent="Panel/Tabs/输入"]
+layout_mode = 2
+text = "按键绑定（点击按钮后按新键）"
+theme_override_font_sizes/font_size = 16
+modulate = Color(0.8, 0.8, 0.8, 1)
+
+[node name="KeyScroll" type="ScrollContainer" parent="Panel/Tabs/输入"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="KeyBindingsList" type="VBoxContainer" parent="Panel/Tabs/输入/KeyScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ResetKeysRow" type="HBoxContainer" parent="Panel/Tabs/输入"]
+layout_mode = 2
+
+[node name="ResetKeysButton" type="Button" parent="Panel/Tabs/输入/ResetKeysRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+text = "恢复默认按键（重启生效）"
+
+[node name="触摸" type="VBoxContainer" parent="Panel/Tabs"]
+layout_mode = 2
+
+[node name="TouchHint" type="Label" parent="Panel/Tabs/触摸"]
+layout_mode = 2
+text = "自定义触摸按钮位置、大小和功能（仅移动端生效）"
+modulate = Color(0.6, 0.65, 0.7, 1)
+
+[node name="TouchScroll" type="ScrollContainer" parent="Panel/Tabs/触摸"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TouchList" type="VBoxContainer" parent="Panel/Tabs/触摸/TouchScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TouchResetRow" type="HBoxContainer" parent="Panel/Tabs/触摸"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TouchEditButton" type="Button" parent="Panel/Tabs/触摸/TouchResetRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+text = "拖动编辑布局"
+
+[node name="TouchResetButton" type="Button" parent="Panel/Tabs/触摸/TouchResetRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+text = "恢复默认触摸布局"
+
+[node name="BottomRow" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -50.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+theme_override_constants/separation = 15
+
+[node name="ResetButton" type="Button" parent="Panel/BottomRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+text = "恢复默认"
+
+[node name="CloseButton" type="Button" parent="Panel/BottomRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+text = "关闭"

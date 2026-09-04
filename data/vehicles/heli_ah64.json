@@ -1,0 +1,293 @@
+{
+    "id": "heli_ah64",
+    "name": "AH-64 阿帕奇",
+    "type": "helicopter",
+    "source": "builtin",
+    "description": "美国陆军主力武装直升机，30mm M230链炮、AGM-114地狱火反坦克导弹与串列双座布局，1986年服役",
+    "model": {
+        "scene_path": "res://assets/models/ah64_helicopter.glb",
+        "scale": 0.36,
+        "offset": [
+            0,
+            0,
+            0
+        ],
+        "collision_size": [
+            2.5,
+            3.0,
+            14.0
+        ],
+        "collision_offset": [
+            0,
+            1.5,
+            0.5
+        ],
+        "main_rotor_offset": [
+            0,
+            4.12,
+            0
+        ],
+        "tail_rotor_static": false,
+        "tail_rotor_offset": [
+            0.375,
+            0,
+            0
+        ],
+        "turret_pivot": [
+            0.012,
+            0.8,
+            -3.2
+        ],
+        "gun_pivot": [
+            0,
+            0,
+            0
+        ],
+        "muzzle_offset": [
+            0,
+            0,
+            -0.95
+        ],
+        "muzzles_from_model": true,
+        "muzzles": [
+            [
+                -2.73,
+                1.46,
+                -1.74
+            ],
+            [
+                2.73,
+                1.46,
+                -1.74
+            ]
+        ],
+        "missile_visual": {
+            "count": 2,
+            "length": 1.6,
+            "radius": 0.09
+        }
+    },
+    "physics": {
+        "max_speed": 293.0,
+        "turret_turn_rate": 90.0,
+        "crash_impact_scale": 0.6,
+        "crash_no_spall": true,
+        "mass_kg": 8000.0,
+        "rotor_radius": 7.3,
+        "rotor_omega_nominal": 30.0,
+        "ct_max": 0.035,
+        "drag_area": 6.0,
+        "max_cyclic_angle": 0.175,
+        "vne": 81.4,
+        "moment_of_inertia": 1.0,
+        "rotor_inertia": 1000.0,
+        "max_engine_power": 7000000.0,
+        "yaw_torque": 2.0,
+        "pitch_torque": 1.5,
+        "roll_torque": 1.5,
+        "auto_stabilize": 3.0,
+        "collective_wheel_step": 0.08,
+        "aim_sensitivity": 0.9,
+        "max_aim_pitch_up": 90.0,
+        "max_aim_pitch_down": -90.0,
+        "guidance_gain": 1.2,
+        "max_guidance_rate": 1.6,
+        "bank_limit": 0.7,
+        "rudder_assist_deg": 18.0,
+        "ground_turn_rate": 45.0,
+        "cam_follow_speed": 5.0,
+        "hover_height_gain": 1.2,
+        "hover_speed_limit": 5.0,
+        "hover_speed_gain": 0.15,
+        "hover_collective_rate": 3.0,
+        "vertical_damping_gain": 1.0
+    },
+    "armor": {
+        "hull_front": 15,
+        "hull_side": 8,
+        "hull_rear": 5,
+        "turret_front": 5,
+        "turret_side": 0,
+        "turret_rear": 0,
+        "armor_type": "light"
+    },
+    "modules": [
+        {
+            "name": "engine",
+            "display_name": "发动机",
+            "max_health": 60,
+            "armor_thickness": 5,
+            "is_critical": true,
+            "position": [
+                0,
+                2.0,
+                1.0
+            ],
+            "size": [
+                1.2,
+                1.0,
+                1.5
+            ]
+        },
+        {
+            "name": "transmission",
+            "display_name": "传动系统",
+            "max_health": 40,
+            "armor_thickness": 3,
+            "is_critical": true,
+            "position": [
+                0,
+                2.2,
+                -1.0
+            ],
+            "size": [
+                1.0,
+                0.5,
+                1.0
+            ]
+        },
+        {
+            "name": "main_rotor",
+            "display_name": "主旋翼",
+            "max_health": 35,
+            "armor_thickness": 0,
+            "is_critical": true,
+            "performance_falloff": 0.0,
+            "position": [
+                0,
+                3.4,
+                0
+            ],
+            "size": [
+                10.0,
+                0.2,
+                0.5
+            ]
+        },
+        {
+            "name": "tail_rotor",
+            "display_name": "尾旋翼",
+            "max_health": 20,
+            "armor_thickness": 0,
+            "is_critical": true,
+            "position": [
+                0.3,
+                3.2,
+                9.5
+            ],
+            "size": [
+                0.3,
+                2.0,
+                0.3
+            ]
+        },
+        {
+            "name": "crew_pilot",
+            "display_name": "飞行员",
+            "max_health": 1,
+            "armor_thickness": 0,
+            "is_critical": true,
+            "position": [
+                0,
+                1.8,
+                -2.5
+            ],
+            "size": [
+                0.5,
+                0.8,
+                0.5
+            ]
+        },
+        {
+            "name": "crew_gunner",
+            "display_name": "武器官",
+            "max_health": 1,
+            "armor_thickness": 0,
+            "is_critical": true,
+            "position": [
+                0,
+                1.8,
+                -1.5
+            ],
+            "size": [
+                0.5,
+                0.8,
+                0.5
+            ]
+        },
+        {
+            "name": "fuel_tank",
+            "display_name": "油箱",
+            "max_health": 35,
+            "armor_thickness": 0,
+            "is_critical": false,
+            "position": [
+                0,
+                1.0,
+                2.0
+            ],
+            "size": [
+                1.0,
+                0.6,
+                1.2
+            ]
+        },
+        {
+            "name": "ammo_rack",
+            "display_name": "弹药架",
+            "max_health": 25,
+            "armor_thickness": 0,
+            "is_critical": true,
+            "position": [
+                0.7,
+                1.0,
+                -4.5
+            ],
+            "size": [
+                0.8,
+                0.5,
+                0.8
+            ]
+        }
+    ],
+    "weapons": [
+        {
+            "slot": "primary",
+            "weapon_id": "gun_30mm_m230",
+            "fire_rate": 600,
+            "ammo_capacity": 1200,
+            "reload_time": 0.1,
+            "muzzle_mode": "node"
+        },
+        {
+            "slot": "secondary",
+            "weapon_id": "missile_hellfire",
+            "fire_rate": 0.5,
+            "ammo_capacity": 16,
+            "reload_time": 0.6,
+            "muzzle_mode": "alternate"
+        }
+    ],
+    "crew_count": 2,
+    "skills": [
+        {
+            "id": "artillery",
+            "name": "火炮支援",
+            "cooldown": 60.0,
+            "duration": 0.0,
+            "radius": 50.0,
+            "damage": 200.0
+        },
+        {
+            "id": "smoke",
+            "name": "烟幕遮蔽",
+            "cooldown": 45.0,
+            "duration": 30.0,
+            "radius": 30.0,
+            "damage": 0.0
+        }
+    ],
+    "nation": "USA",
+    "era": "modern",
+    "history": "AH-64由休斯/麦道/波音研制，1975年首飞，1986年服役（AH-64A），AH-64D长弓阿帕奇1997年列装，各型累计生产约2400架。空重5165kg，最大起飞重量10433kg，2台T700涡轴发动机（每台1690马力），最大速度293km/h，作战半径480km。武器为30mm M230链炮（备弹1200发，射速625发/分），4个挂点最多挂载16枚AGM-114地狱火导弹或Hydra 70火箭弹。机身可承受12.7mm穿甲弹与23mm高爆弹。乘员2人（串列双座）。参加海湾战争、伊拉克战争、阿富汗战争。"
+}
