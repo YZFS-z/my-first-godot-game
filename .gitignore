@@ -1,0 +1,32 @@
+# Godot 4 生成文件
+.godot/
+*.import
+
+# 导出产物
+/out/
+*.exe
+*.apk
+*.aab
+*.pck
+*.zip
+
+# Android 构建产物（由 Godot 导出生成，不要手动编辑）
+android/build/
+android/*.gradle
+android/gradle*
+android/local.properties
+android/.gradle/
+android/build/build/
+
+# Python 服务器
+server/data/
+server/__pycache__/
+*.pyc
+*.pyo
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+*.tmp
+.ruff_cache/
+.dumate/
